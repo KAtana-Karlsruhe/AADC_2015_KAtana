@@ -1,0 +1,8 @@
+<adtf:export xmlns:adtf="adtf">
+	<layout name="Jury_Main_IP_ENV_VAR">
+		<filter Docked="false" Floating="false" Fullscreen="false" Height="240" Maximized="false" Minimized="false" PosX="0" PosY="0" TopOfMain="false" Visible="true" Width="320" name="Jury_Config-AADC_Jury_Module" />
+	</layout>
+	<layout name="Jury_Main_localhost">
+		<filter Docked="false" Floating="false" Fullscreen="false" Height="240" Maximized="false" Minimized="false" PosX="0" PosY="0" TopOfMain="false" Visible="true" Width="320" name="Jury_Config-AADC_Jury_Module" />
+	</layout>
+</adtf:export>

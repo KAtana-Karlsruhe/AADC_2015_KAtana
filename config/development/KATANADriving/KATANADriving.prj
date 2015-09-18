@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<project name="KATANADriving" version="2.0">
+	<folder desc="Configuration Files" expand="" name="Configuration" path="config" type="config">
+		<file name="System Configuration" path=".\config\system.xml" type="config/sys" />
+	</folder>
+	<folder active="true" desc="Tasks" expand="*.dat" name="Captured Files" path="files" type="capture" />
+	<file name="rec1.dat" path="/media/odroid/6538-3462/Obstactle_filter_recording/rec1.dat" type="capture/datfile" />
+	<file name="rec2.dat" path="/media/odroid/6538-3462/Obstactle_filter_recording/rec2.dat" type="capture/datfile" />
+</project>

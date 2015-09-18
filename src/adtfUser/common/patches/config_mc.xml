@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+
+<double name="standard_velocity" value="0.30"/>
+<double name="velocity_after_lane_change" value="0.20"/>
+<double name="junction_missed_distance" value="0.85"/>
+<double name="min_roadsign_junction_change" value="800.0"/>
+<double name="min_parking_sign_change" value="700.0"/>
+<double name="wait_time_junction" value="20.0" />
+
+<double name="distance_neede_for_lane_change" value="0.4" />
+
+<double name="distance_normal_speed_after_junction" value="2.0" />
+<double name="distance_normal_speed" value="1.0" />
+
+<double name="obstacle_waiting_duration" value="50.0" />
+
+<!-- VELOCITY PID -->
+<double name="pid_ta" value="0.07"/>
+<double name="pid_kp" value="30.0"/>
+<double name="pid_ki" value="20.0"/>
+<double name="pid_kd" value="4.0"/>
+
+
+<int name="bla" value="75" />

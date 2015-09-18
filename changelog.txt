@@ -1,0 +1,76 @@
+v.1.0.1
+	src/build_win.bat			bat script for windows to make an project for visual studio 10
+	xtion filter		1.1.0	improved the performance of the camera filter and modified the point where the configuration file is loaded 
+	QrPlayer			1.0.0	added a new user filter to read Qr Codes from the video and detect predefined commands and give them as an output to a calibration filter and from there to arduino actors
+	configs						added new calibration filters for calculation of the correct overall distance	of the wheelsensors
+configs 					modified the default IPs for the Configurations, added a missing calibration filter, corrected a spelling error in the ports
+v.1.0.2.
+	Jury Module					added a listWidget of all the received driver states which contain the laptimes
+	configs						added the master-slave relation between adtfBase and adtfUser; each config contains its own globals.xml which are necessary for the two configurations
+	configs						the adtfBase has receive and transmit subgraphs for the jury instance
+	configs						set the right calibration values for voltage measurements
+	calibration_files			added a new calibration file for the steering_angle sensor
+	CarVisualization			fixed some bugs in the steering_angle display
+	new CMakeLists.txt			additional cmake file to be load in other IDEs. not used in normal building process
+v.1.0.3.
+	configs					adtfUser includes now the configuration adtfBase via ADTF include. the messagebus between adtfBase and adtfUser is not used any more
+	jury module				changed the labels of the widget
+	driver module				changed the labels of the widget
+	wheel_speed_sensor		changed the name of the  filter
+	changed the paths in the CMakelists. all sdk are now in /opt/sdk/ and not in /opt/ anymore
+	added a script in /src to reset the xtion
+v.1.0.4.	
+	deleted all whitespaces in pin names
+	modified format of xml
+	deleted includes of windows.h
+added stdint for windows
+
+v.1.2.0.
+	deleted autonomous scripter
+	deleted the photosensor integration
+	added comments and created doc with doxygen
+	renamed folder of sensor unbundle filter
+	deleted additional trunk level in the folder structure
+
+v.1.2.1.
+	configs			changed the paths for the media descriptions in the system.xml 
+	moved the imageprocessing filters to adtfUser
+	jury module		added import of xml (maneuver list)
+	driver module 	added import of xml (maneuver list)
+	fixed some bugs
+	modified the defalut calibration file for the xtion: xtionSettings.xml
+
+v.1.3.0.
+	attitude converter module 		fixed bug in the order of yaw pitch roll 
+	marker detection filter 		added filter for detection of bitcodes which are used for traffic signs (based on aruco lib)
+	road sign evaluator				added filter only for demonstration purpose to show results of marker detection
+	traffic sign detection filter	algorithm for detection and classification modified; matching is deletet, sign are classified only by shape and color
+	fixed some minor bugs in the cmake structure
+	tests 							added some automated tests for the adtf filters
+	xtionSettings.xml				lowered the default resolution for the depthimage to not overload the usb controller
+	reorganized the folder structure for adtfUser and adtfBase
+	arduino communication filter	revised complete filter 
+	
+v.1.3.1
+	mediaSample timestamps		fixed a bug
+	Jury Modul 					transmit data eatch 250 ms
+	DDL Descriptions			revised 
+	
+v.1.3.2.
+	xtion Filter				option added to set the values of the depth image of the xtion to millimeters
+	revised the getting and putting of data to and from the mediasamples in each filter. Now a macro is used which cannot locked the sample out of its scope
+    sensors filter              ir rear center media description fixed
+	
+v.1.3.3.
+	revised the getting and putting of data to and from the mediasamples in each filter again. Now the correct scopes are set
+	BaseConfig					revised layout
+	JuryConfig                  revised layout
+	Marker Detection			the area of the detected sign is now correctly transmitted
+	road sign evaluator			added this filter to show the result of the marker detection
+	arduinoActuators				modifed the setting of the mediaDescriptors because the OnTypeChanged call cannot not be used with In-/Outports in Raw Mode.
+	arduinoCommunication		fixed a bug in the thread procedure (invalid high cpu usage)
+	Jury Filter 				added a button to stop the sending of the samples with EmergencyStop
+	arduinoActuators 	added critical sections for transmit and process functions
+	arduinoActuators		renamed filter from aadc.aktors to aadc.actuators
+	abstractSensorBundle	fixed bug with locks
+	

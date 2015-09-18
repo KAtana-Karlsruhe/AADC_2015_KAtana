@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resource/GeradeAus.png</file>
+        <file>resource/Parken.png</file>
+        <file>resource/Stop.png</file>
+        <file>resource/Vorfahrt.png</file>
+        <file>resource/VorfahrtRichtung.png</file>
+        <file>resource/NoMatch.png</file>
+        <file>resource/Kreuzung.png</file>
+        <file>resource/Einbahnstrasse.png</file>
+        <file>resource/Einfahrtverboten.png</file>
+        <file>resource/Fussgaengerueberweg.png</file> 
+        <file>resource/Kreisverkehr.png</file>
+        <file>resource/Ueberholverbot.png</file>
+    </qresource>
+</RCC>

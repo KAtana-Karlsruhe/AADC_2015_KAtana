@@ -1,0 +1,28 @@
+var classc_xtion_capture_filter =
+[
+    [ "cXtionCaptureFilter", "classc_xtion_capture_filter.html#ad33e9a3185951274dd925b32abe2f6f2", null ],
+    [ "~cXtionCaptureFilter", "classc_xtion_capture_filter.html#adefadb538a34ace1c2f5aadf9da45225", null ],
+    [ "Init", "classc_xtion_capture_filter.html#a9712423160be09c7aa2f3f351dc0fa0a", null ],
+    [ "LoadConfiguration", "classc_xtion_capture_filter.html#a435ce3dbe5c1dde13012778ce620d935", null ],
+    [ "ReadData", "classc_xtion_capture_filter.html#acb416dcdd52715c4047c8ca7affece87", null ],
+    [ "Shutdown", "classc_xtion_capture_filter.html#a0249b07ffc29fb7e603d5c1dd90b174f", null ],
+    [ "Start", "classc_xtion_capture_filter.html#a9535a52b32f181383b7af78335116bd5", null ],
+    [ "Stop", "classc_xtion_capture_filter.html#af44e0e50d74bd3e1cea7a53188874810", null ],
+    [ "ThreadFunc", "classc_xtion_capture_filter.html#a7274cc6ad020b05d0e36416b75bb24e2", null ],
+    [ "m_fileConfig", "classc_xtion_capture_filter.html#ad10d76a70ac39a558b43f7312b898bf4", null ],
+    [ "m_FPSDepth", "classc_xtion_capture_filter.html#a3c1735f4fc451e3548a031dcbb08f235", null ],
+    [ "m_FPSVideo", "classc_xtion_capture_filter.html#ad23bc2724616e59e3212ef7b56405d31", null ],
+    [ "m_GrabberTimeoutMs", "classc_xtion_capture_filter.html#a6430bb4d86eea64dbe1e293d0ae6855e", null ],
+    [ "m_nHeightDepth", "classc_xtion_capture_filter.html#a049e5d58ab769a9b753c3d615d72dc94", null ],
+    [ "m_nHeightVideo", "classc_xtion_capture_filter.html#a3d4c071e9ce2031d973472bb82116896", null ],
+    [ "m_nWidthDepth", "classc_xtion_capture_filter.html#a36e02855585a4f9a8cad115142a119fe", null ],
+    [ "m_nWidthVideo", "classc_xtion_capture_filter.html#ad54786ca70ba4687b8db35d7035c65e1", null ],
+    [ "m_oDepthImage", "classc_xtion_capture_filter.html#aad94e6c87431b0450400e991480ad8a4", null ],
+    [ "m_oRGBVideo", "classc_xtion_capture_filter.html#abfe1effc57469f4eb55ab2fcf26bba8a", null ],
+    [ "m_oWorker", "classc_xtion_capture_filter.html#a09cc68eec0b512596fa2b86f6d22c6f1", null ],
+    [ "m_sBitmapFormat", "classc_xtion_capture_filter.html#aec4b896e132388761316f4a467632842", null ],
+    [ "m_sBitmapFormatDepth", "classc_xtion_capture_filter.html#a6170ebba91621af2b010f000ce722b99", null ],
+    [ "m_setDepthColorSync", "classc_xtion_capture_filter.html#aafcccd0e534873ee7aca7595b018f46a", null ],
+    [ "m_setRegistration", "classc_xtion_capture_filter.html#a2fc3e31d8fb2c6fa6987969c985abcf0", null ],
+    [ "m_xtionGrabber", "classc_xtion_capture_filter.html#a492e7655e4d66c18859592da0187d696", null ]
+];

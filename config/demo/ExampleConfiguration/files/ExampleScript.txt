@@ -1,0 +1,10 @@
+sleep 1000
+turn -10
+go -20
+sleep 4000
+go 0
+turn 10
+go 50
+sleep 4000
+go 0
+turn 0

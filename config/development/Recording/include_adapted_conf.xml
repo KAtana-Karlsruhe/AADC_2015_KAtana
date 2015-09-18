@@ -1,0 +1,218 @@
+<adtf:include xmlns:adtf="adtf">
+	<configuration description="" name="Base_Config_MOD" url="tcp://localhost:5000">
+		<graph>
+			<inport alias="brakeLightEnabled" />
+			<inport alias="steerAngle" />
+			<inport alias="headLightEnabled" />
+			<inport alias="accelerate" />
+			<inport alias="Watchdog_Alive_Flag" />
+			<inport alias="turnSignalRightEnabled" />
+			<inport alias="reverseLightsEnabled" />
+			<inport alias="turnSignalLeftEnabled" />
+			<inport alias="Driver_State" />
+			<outport alias="IR_front_left_shortrange" />
+			<outport alias="IR_rear_left_shortrange" />
+			<outport alias="ACC_acc_x" />
+			<outport alias="GYR_quaternion_gyro_x" />
+			<outport alias="WH_WheelSpeed_Sensor_Left" />
+			<outport alias="Run_Maneuver" />
+			<outport alias="IR_front_left_longrange" />
+			<outport alias="IR_rear_center_shortrange" />
+			<outport alias="ST_steeringAngle" />
+			<outport alias="GYR_quaternion_gyro_w" />
+			<outport alias="WH_WheelSpeed_Sensor_Right" />
+			<outport alias="US_range_front_right" />
+			<outport alias="Stop_Flag" />
+			<outport alias="IR_front_center_shortrange" />
+			<outport alias="IR_front_right_shortrange" />
+			<outport alias="ACC_acc_y" />
+			<outport alias="US_range_front_left" />
+			<outport alias="GYR_quaternion_gyro_z" />
+			<outport alias="VOLT_power_circuit" />
+			<outport alias="IR_front_center_longrange" />
+			<outport alias="IR_front_right_longrange" />
+			<outport alias="US_range_rear_right" />
+			<outport alias="IR_rear_right_shortrange" />
+			<outport alias="US_range_rear_left" />
+			<outport alias="ACC_acc_z" />
+			<outport alias="GYR_quaternion_gyro_y" />
+			<outport alias="VOLT_measurement_circuit" />
+			<filter alias="AADC_Arduino_Actuator" idref="adtf.aadc.aktors" priority="11" />
+			<filter alias="AADC_Arduino_Communication" idref="adtf.aadc.arduinoCOM" priority="12" />
+			<filter alias="AADC_Calibration_Filter_Extended" idref="adtf.aadc.sensorCalibration" priority="13">
+				<settings>
+					<property name="Configuration File For Interpolation" type="String" value="../../../../calibration_files/AccelerateActuator.xml" />
+				</settings>
+			</filter>
+			<filter alias="AADC_Calibration_Filter_Extended2" idref="adtf.aadc.sensorCalibration" priority="14">
+				<settings>
+					<property name="Configuration File For Interpolation" type="String" value="../../../../calibration_files/SteerAngleActuator.xml" />
+				</settings>
+			</filter>
+			<filter alias="AADC_Ultrasonic_Signals" idref="adtf.aadc.ultrasonicSignals" priority="15" />
+			<filter alias="AADC_Infrared_Signals" idref="adtf.aadc.infraredSignals" priority="16" />
+			<filter alias="AADC_Steering_Servo_Signals" idref="adtf.aadc.steeringServoSignals" priority="17" />
+			<filter alias="AADC_Accelerometer_Signals" idref="adtf.aadc.accelerometerSignals" priority="18" />
+			<filter alias="AADC_Gyroscope_Signals" idref="adtf.aadc.gyroscopeSignals" priority="19" />
+			<filter alias="AADC_Wheel_Speed_Sensor_Signals" idref="adtf.aadc.wheelSpeedSensorSignals" priority="20" />
+			<filter alias="AADC_System_Voltage_Signals" idref="adtf.aadc.systemVoltageSignals" priority="20" />
+			<connection connection_priority="50" dest="AADC_Arduino_Communication.COM_input" interface="" source="AADC_Arduino_Actuator.ArduinoCOM_output" />
+			<connection connection_priority="50" dest="AADC_Arduino_Sensors.ArduinoCOM_input" interface="" source="AADC_Arduino_Communication.COM_output" />
+			<connection connection_priority="50" dest="AADC_Calibration_Filter_Extended.input_value" interface="" source="accelerate" />
+			<connection connection_priority="50" dest="AADC_Calibration_Filter_Extended2.input_value" interface="" source="steerAngle" />
+			<connection connection_priority="50" dest="AADC_Arduino_Actuator.steerAngle" interface="" source="AADC_Calibration_Filter_Extended2.output_value" />
+			<connection connection_priority="50" dest="AADC_Arduino_Actuator.accelerate" interface="" source="AADC_Calibration_Filter_Extended.output_value" />
+			<connection connection_priority="50" dest="AADC_Arduino_Actuator.headLightEnabled" interface="" source="headLightEnabled" />
+			<connection connection_priority="50" dest="AADC_Arduino_Actuator.turnSignalLeftEnabled" interface="" source="turnSignalLeftEnabled" />
+			<connection connection_priority="50" dest="AADC_Arduino_Actuator.turnSignalRightEnabled" interface="" source="turnSignalRightEnabled" />
+			<connection connection_priority="50" dest="AADC_Arduino_Actuator.brakeLightEnabled" interface="" source="brakeLightEnabled" />
+			<connection connection_priority="50" dest="AADC_Arduino_Actuator.reverseLightsEnabled" interface="" source="reverseLightsEnabled" />
+			<connection connection_priority="50" dest="AADC_Arduino_Actuator.Watchdog_Alive_Flag" interface="" source="Watchdog_Alive_Flag" />
+			<filter alias="AADC_Calibration_Filter_Extended3" idref="adtf.aadc.sensorCalibration" priority="21">
+				<settings>
+					<property name="Configuration File For Interpolation" type="String" value="../../../../calibration_files/IR_front_center_longrange.xml" />
+					<property name="Interpolation" type="Int" value="2" />
+				</settings>
+			</filter>
+			<filter alias="AADC_Calibration_Filter_Extended4" idref="adtf.aadc.sensorCalibration" priority="22">
+				<settings>
+					<property name="Configuration File For Interpolation" type="String" value="../../../../calibration_files/IR_front_center_shortrange.xml" />
+					<property name="Interpolation" type="Int" value="2" />
+				</settings>
+			</filter>
+			<filter alias="AADC_Calibration_Filter_Extended5" idref="adtf.aadc.sensorCalibration" priority="23">
+				<settings>
+					<property name="Configuration File For Interpolation" type="String" value="../../../../calibration_files/IR_front_left_longrange.xml" />
+					<property name="Interpolation" type="Int" value="2" />
+				</settings>
+			</filter>
+			<filter alias="AADC_Calibration_Filter_Extended6" idref="adtf.aadc.sensorCalibration" priority="24">
+				<settings>
+					<property name="Configuration File For Interpolation" type="String" value="../../../../calibration_files/IR_front_left_shortrange.xml" />
+					<property name="Interpolation" type="Int" value="2" />
+				</settings>
+			</filter>
+			<filter alias="AADC_Calibration_Filter_Extended7" idref="adtf.aadc.sensorCalibration" priority="25">
+				<settings>
+					<property name="Configuration File For Interpolation" type="String" value="../../../../calibration_files/IR_front_right_longrange.xml" />
+					<property name="Interpolation" type="Int" value="2" />
+				</settings>
+			</filter>
+			<filter alias="AADC_Calibration_Filter_Extended8" idref="adtf.aadc.sensorCalibration" priority="26">
+				<settings>
+					<property name="Configuration File For Interpolation" type="String" value="../../../../calibration_files/IR_front_right_shortrange.xml" />
+					<property name="Interpolation" type="Int" value="2" />
+				</settings>
+			</filter>
+			<filter alias="AADC_Calibration_Filter_Extended9" idref="adtf.aadc.sensorCalibration" priority="26">
+				<settings>
+					<property name="Configuration File For Interpolation" type="String" value="../../../../calibration_files/IR_rear_center_shortrange.xml" />
+					<property name="Interpolation" type="Int" value="2" />
+				</settings>
+			</filter>
+			<filter alias="AADC_Calibration_Filter_Extended10" idref="adtf.aadc.sensorCalibration" priority="27">
+				<settings>
+					<property name="Configuration File For Interpolation" type="String" value="../../../../calibration_files/IR_rear_left_shortrange.xml" />
+					<property name="Interpolation" type="Int" value="2" />
+				</settings>
+			</filter>
+			<filter alias="AADC_Calibration_Filter_Extended11" idref="adtf.aadc.sensorCalibration" priority="27">
+				<settings>
+					<property name="Configuration File For Interpolation" type="String" value="../../../../calibration_files/IR_rear_right_shortrange.xml" />
+					<property name="Interpolation" type="Int" value="2" />
+				</settings>
+			</filter>
+			<connection connection_priority="50" dest="US_range_front_left" interface="" source="AADC_Ultrasonic_Signals.range_front_left" />
+			<connection connection_priority="50" dest="US_range_front_right" interface="" source="AADC_Ultrasonic_Signals.range_front_right" />
+			<connection connection_priority="50" dest="US_range_rear_left" interface="" source="AADC_Ultrasonic_Signals.range_rear_left" />
+			<connection connection_priority="50" dest="US_range_rear_right" interface="" source="AADC_Ultrasonic_Signals.range_rear_right" />
+			<connection connection_priority="50" dest="AADC_Calibration_Filter_Extended3.input_value" interface="" source="AADC_Infrared_Signals.voltage_front_center_longrange" />
+			<connection connection_priority="50" dest="AADC_Calibration_Filter_Extended4.input_value" interface="" source="AADC_Infrared_Signals.voltage_front_center_shortrange" />
+			<connection connection_priority="50" dest="AADC_Calibration_Filter_Extended5.input_value" interface="" source="AADC_Infrared_Signals.voltage_front_left_longrange" />
+			<connection connection_priority="50" dest="AADC_Calibration_Filter_Extended6.input_value" interface="" source="AADC_Infrared_Signals.voltage_front_left_shortrange" />
+			<connection connection_priority="50" dest="AADC_Calibration_Filter_Extended7.input_value" interface="" source="AADC_Infrared_Signals.voltage_front_right_longrange" />
+			<connection connection_priority="50" dest="AADC_Calibration_Filter_Extended8.input_value" interface="" source="AADC_Infrared_Signals.voltage_front_right_shortrange" />
+			<connection connection_priority="50" dest="AADC_Calibration_Filter_Extended9.input_value" interface="" source="AADC_Infrared_Signals.voltage_rear_center_shortrange" />
+			<connection connection_priority="50" dest="AADC_Calibration_Filter_Extended10.input_value" interface="" source="AADC_Infrared_Signals.voltage_rear_left_shortrange" />
+			<connection connection_priority="50" dest="AADC_Calibration_Filter_Extended11.input_value" interface="" source="AADC_Infrared_Signals.voltage_rear_right_shortrange" />
+			<connection connection_priority="50" dest="IR_front_center_longrange" interface="" source="AADC_Calibration_Filter_Extended3.output_value" />
+			<connection connection_priority="50" dest="IR_front_center_shortrange" interface="" source="AADC_Calibration_Filter_Extended4.output_value" />
+			<connection connection_priority="50" dest="IR_front_left_longrange" interface="" source="AADC_Calibration_Filter_Extended5.output_value" />
+			<connection connection_priority="50" dest="IR_front_left_shortrange" interface="" source="AADC_Calibration_Filter_Extended6.output_value" />
+			<connection connection_priority="50" dest="IR_front_right_longrange" interface="" source="AADC_Calibration_Filter_Extended7.output_value" />
+			<connection connection_priority="50" dest="IR_front_right_shortrange" interface="" source="AADC_Calibration_Filter_Extended8.output_value" />
+			<connection connection_priority="50" dest="IR_rear_center_shortrange" interface="" source="AADC_Calibration_Filter_Extended9.output_value" />
+			<connection connection_priority="50" dest="IR_rear_left_shortrange" interface="" source="AADC_Calibration_Filter_Extended10.output_value" />
+			<connection connection_priority="50" dest="IR_rear_right_shortrange" interface="" source="AADC_Calibration_Filter_Extended11.output_value" />
+			<filter alias="AADC_Calibration_Filter_Extended12" idref="adtf.aadc.sensorCalibration" priority="19">
+				<settings>
+					<property name="Configuration File For Interpolation" type="String" value="../../../../calibration_files/SteerAngleSensor.xml" />
+				</settings>
+			</filter>
+			<connection connection_priority="50" dest="AADC_Calibration_Filter_Extended12.input_value" interface="" source="AADC_Steering_Servo_Signals.steerAngle" />
+			<connection connection_priority="50" dest="ST_steeringAngle" interface="" source="AADC_Calibration_Filter_Extended12.output_value" />
+			<filter alias="AADC_Calibration_Scaling" idref="adtf.aadc.calibrationScaling" priority="22">
+				<settings>
+					<property name="Scale Factor" type="Float" value="0,00122625.0" />
+				</settings>
+			</filter>
+			<filter alias="AADC_Calibration_Scaling2" idref="adtf.aadc.calibrationScaling" priority="23">
+				<settings>
+					<property name="Scale Factor" type="Float" value="0,00122625.0" />
+				</settings>
+			</filter>
+			<filter alias="AADC_Calibration_Scaling3" idref="adtf.aadc.calibrationScaling" priority="24">
+				<settings>
+					<property name="Scale Factor" type="Float" value="0,00122625.0" />
+				</settings>
+			</filter>
+			<filter alias="AADC_Calibration_Scaling4" idref="adtf.aadc.calibrationScaling" priority="25">
+				<settings>
+					<property name="Scale Factor" type="Float" value="0,013521.0" />
+				</settings>
+			</filter>
+			<filter alias="AADC_Calibration_Scaling5" idref="adtf.aadc.calibrationScaling" priority="26">
+				<settings>
+					<property name="Scale Factor" type="Float" value="0,013521.0" />
+				</settings>
+			</filter>
+			<connection connection_priority="50" dest="AADC_Calibration_Scaling.input_value" interface="" source="AADC_Accelerometer_Signals.acc_x" />
+			<connection connection_priority="50" dest="AADC_Calibration_Scaling2.input_value" interface="" source="AADC_Accelerometer_Signals.acc_y" />
+			<connection connection_priority="50" dest="AADC_Calibration_Scaling3.input_value" interface="" source="AADC_Accelerometer_Signals.acc_z" />
+			<connection connection_priority="50" dest="ACC_acc_x" interface="" source="AADC_Calibration_Scaling.output_value" />
+			<connection connection_priority="50" dest="ACC_acc_y" interface="" source="AADC_Calibration_Scaling2.output_value" />
+			<connection connection_priority="50" dest="ACC_acc_z" interface="" source="AADC_Calibration_Scaling3.output_value" />
+			<connection connection_priority="50" dest="GYR_quaternion_gyro_w" interface="" source="AADC_Gyroscope_Signals.quaternion_gyro_w" />
+			<connection connection_priority="50" dest="GYR_quaternion_gyro_x" interface="" source="AADC_Gyroscope_Signals.quaternion_gyro_x" />
+			<connection connection_priority="50" dest="GYR_quaternion_gyro_y" interface="" source="AADC_Gyroscope_Signals.quaternion_gyro_y" />
+			<connection connection_priority="50" dest="GYR_quaternion_gyro_z" interface="" source="AADC_Gyroscope_Signals.quaternion_gyro_z" />
+			<connection connection_priority="50" dest="WH_WheelSpeed_Sensor_Left" interface="" source="AADC_Wheel_Speed_Sensor_Signals.wheel_speed_sensor_left" />
+			<connection connection_priority="50" dest="WH_WheelSpeed_Sensor_Right" interface="" source="AADC_Wheel_Speed_Sensor_Signals.wheel_speed_sensor_right" />
+			<connection connection_priority="50" dest="AADC_Calibration_Scaling4.input_value" interface="" source="AADC_System_Voltage_Signals.voltage_measurement_circuit" />
+			<connection connection_priority="50" dest="AADC_Calibration_Scaling5.input_value" interface="" source="AADC_System_Voltage_Signals.voltage_power_circuit" />
+			<connection connection_priority="50" dest="VOLT_power_circuit" interface="" source="AADC_Calibration_Scaling4.output_value" />
+			<connection connection_priority="50" dest="VOLT_measurement_circuit" interface="" source="AADC_Calibration_Scaling5.output_value" />
+			<filter alias="AADC_Arduino_Sensors" idref="adtf.aadc.sensors" priority="27" />
+			<connection connection_priority="50" dest="AADC_Ultrasonic_Signals.ultrasonic_sensors" interface="" source="AADC_Arduino_Sensors.ultrasonic_sensors" />
+			<connection connection_priority="50" dest="AADC_Infrared_Signals.infrared_sensors" interface="" source="AADC_Arduino_Sensors.infrared_sensors" />
+			<connection connection_priority="50" dest="AADC_Steering_Servo_Signals.steering_servo" interface="" source="AADC_Arduino_Sensors.steering_servo" />
+			<connection connection_priority="50" dest="AADC_Accelerometer_Signals.accelerometer" interface="" source="AADC_Arduino_Sensors.accelerometer" />
+			<connection connection_priority="50" dest="AADC_Gyroscope_Signals.gyroscope" interface="" source="AADC_Arduino_Sensors.gyroscope" />
+			<connection connection_priority="50" dest="AADC_Wheel_Speed_Sensor_Signals.wheel_speed_sensor" interface="" source="AADC_Arduino_Sensors.wheel_speed_sensor" />
+			<connection connection_priority="50" dest="AADC_System_Voltage_Signals.system_voltage" interface="" source="AADC_Arduino_Sensors.system_voltage" />
+		</graph>
+	</configuration>
+	<configuration description="" name="Jury_Config_MOD">
+		<graph>
+			<inport alias="Driver_State" />
+			<outport alias="Emergency_Stop" />
+			<outport alias="Stop_Flag" />
+			<outport alias="Run_Maneuver" />
+			<connection connection_priority="50" dest="Emergency_Stop" interface="" source="AADC_Jury_Module.Emergency_Stop" />
+			<filter alias="AADC_Jury_Module" idref="adtf.aadc.jury_transmitter" priority="1" />
+			<connection connection_priority="50" dest="AADC_Jury_Module.Driver_State" interface="" source="Driver_State" />
+			<connection connection_priority="50" dest="Stop_Flag" interface="" source="AADC_Jury_Module.Stop_Flag" />
+			<connection connection_priority="50" dest="Run_Maneuver" interface="" source="AADC_Jury_Module.Run_Maneuver" />
+		</graph>
+	</configuration>
+</adtf:include>

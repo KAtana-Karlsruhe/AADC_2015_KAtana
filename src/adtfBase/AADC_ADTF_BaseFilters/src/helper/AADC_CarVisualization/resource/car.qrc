@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="images">
+    <file>AnfahrNoWarn.png</file>
+    <file>AnfahrWarn.png</file>
+    <file>NotbrAn.png</file>
+    <file>NotbrAus.png</file>
+  </qresource>
+</RCC>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes"?>
+<calibration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<settings>
+		<mode>linear</mode>
+	</settings>
+	<supportingPoints>
+		<point>
+			<xValue>246</xValue>
+			<yValue>-30</yValue>
+		</point>
+		<point>
+			<xValue>367.5</xValue>
+			<yValue>30</yValue>
+		</point>
+	</supportingPoints>
+</calibration>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<adtf:project xmlns:adtf="adtf">
+	<general_settings>
+		<property name="active_configuration" type="String" value="Competition" />
+	</general_settings>
+	<configurations>
+		<configuration description="" name="Driving_Lanetracker_Missioncontrol">
+			<graph>
+				<filter alias="AADC_Watchdog_Trigger" idref="adtf.aadc.watchdogGuard" priority="2" />
+				<filter alias="AADC_Xtion_Camera" idref="adtf.aadc.xtionCaptureDevice" priority="3">
+					<settings>
+						<property name="Configuration File" type="String" value="../../../../calibration_files/xtionSettings.xml" />
+					</settings>
+				</filter>
+				<filter alias="KATANA_Lanetracker" idref="adtf.aadc.lanetracker" priority="4">
+					<settings>
+						<property name="IPM-Config" type="String" value="../../../../src/adtfUser/common/patches/katana_config.xml" />
+						<property name="Binary-Threshold" type="Int" value="120" />
+						<property name="Use binary threshold" type="Bool" value="false" />
+					</settings>
+				</filter>
+				<connection connection_priority="50" dest="KATANA_Lanetracker.input" interface="" source="AADC_Xtion_Camera.Video_RGB" />
+				<filter alias="KATANA_Mission_Control_Filter" idref="adtf.aadc.mission_control" priority="4">
+					<settings>
+						<property name="Maneuver-Config" type="String" value="../../../../src/adtfUser/katana_mission_control/etc/aadc_route_parking.xml" />
+						<property name="Patch-Config" type="String" value="../../../../src/adtfUser/common/patches/patches.xml" />
+						<property name="MC-Config" type="String" value="../../../../src/adtfUser/common/patches/config_mc.xml" />
+					</settings>
+				</filter>
+				<filter alias="KATANA_Odometry_Filter" idref="adtf.aadc.odometry" priority="5" />
+				<connection connection_priority="50" dest="KATANA_Lanetracker.consistent_patches" interface="" source="KATANA_Mission_Control_Filter.mc_patches" />
+				<connection connection_priority="50" dest="KATANA_Mission_Control_Filter.mc_patches_input" interface="" source="KATANA_Lanetracker.mc_patches" />
+				<connection connection_priority="50" dest="KATANA_Mission_Control_Filter.mc_pose_buf" interface="" source="KATANA_Odometry_Filter.pose_buffer" />
+				<connection connection_priority="50" dest="KATANA_Lanetracker.pose_input" interface="" source="KATANA_Odometry_Filter.pose_buffer" />
+				<subgraph alias="Base_Config_No_Jury" idref="Base_Config_No_Jury" priority="6" />
+				<connection connection_priority="50" dest="Base_Config_No_Jury.Watchdog_Alive_Flag" interface="" source="AADC_Watchdog_Trigger.WatchdogAliveSignal" />
+				<connection connection_priority="50" dest="KATANA_Odometry_Filter.wheel_right" interface="" source="Base_Config_No_Jury.WH_WheelSpeed_Sensor_Right" />
+				<connection connection_priority="50" dest="KATANA_Odometry_Filter.wheel_left" interface="" source="Base_Config_No_Jury.WH_WheelSpeed_Sensor_Left" />
+				<connection connection_priority="50" dest="KATANA_Odometry_Filter.steering_angle" interface="" source="Base_Config_No_Jury.ST_steeringAngle" />
+				<connection connection_priority="50" dest="Base_Config_No_Jury.accelerate" interface="" source="KATANA_Mission_Control_Filter.mc_speed" />
+				<connection connection_priority="50" dest="Base_Config_No_Jury.Driver_Struct" interface="" source="KATANA_Mission_Control_Filter.mc_Jury_Driver_State" />
+				<connection connection_priority="50" dest="Base_Config_No_Jury.steerAngle" interface="" source="KATANA_Mission_Control_Filter.mc_steering" />
+				<connection connection_priority="50" dest="KATANA_Mission_Control_Filter.mc_Jury" interface="" source="Base_Config_No_Jury.Jury_Struct" />
+				<filter alias="Remote_control_via_udp" idref="adtf.aadc.udp.remote" priority="7" />
+				<connection connection_priority="50" dest="KATANA_Lanetracker.debug_input" interface="" source="Remote_control_via_udp.test_trigger" />
+				<connection connection_priority="50" dest="Base_Config_No_Jury.headLightEnabled" interface="" source="KATANA_Mission_Control_Filter.headLightEnabled" />
+				<connection connection_priority="50" dest="Base_Config_No_Jury.brakeLightEnabled" interface="" source="KATANA_Mission_Control_Filter.brakeLightEnabled" />
+				<connection connection_priority="50" dest="Base_Config_No_Jury.turnSignalLeftEnabled" interface="" source="KATANA_Mission_Control_Filter.turnSignalLeftEnabled" />
+				<connection connection_priority="50" dest="Base_Config_No_Jury.turnSignalRightEnabled" interface="" source="KATANA_Mission_Control_Filter.turnSignalRightEnabled" />
+				<connection connection_priority="50" dest="Base_Config_No_Jury.reverseLightsEnabled" interface="" source="KATANA_Mission_Control_Filter.reverseLightEnabled" />
+				<connection connection_priority="50" dest="KATANA_Mission_Control_Filter.mc_debug_input" interface="" source="Remote_control_via_udp.test_trigger" />
+				<connection connection_priority="50" dest="KATANA_Marker_Detection_Filter.Video_RGB_input" interface="" source="AADC_Xtion_Camera.Video_RGB" />
+				<connection connection_priority="50" dest="KATANA_Marker_Detection_Filter.pose_input" interface="" source="KATANA_Odometry_Filter.pose_buffer" />
+				<filter alias="KATANA_Obstacle_IR_US_Filter" idref="adtf.aadc.obstacle" priority="8" />
+				<connection connection_priority="50" dest="KATANA_Obstacle_IR_US_Filter.ir_front_left_short" interface="" source="Base_Config_No_Jury.IR_front_left_shortrange" />
+				<connection connection_priority="50" dest="KATANA_Obstacle_IR_US_Filter.ir_front_left_long" interface="" source="Base_Config_No_Jury.IR_front_left_longrange" />
+				<connection connection_priority="50" dest="KATANA_Obstacle_IR_US_Filter.ir_rear_center_short" interface="" source="Base_Config_No_Jury.IR_rear_center_shortrange" />
+				<connection connection_priority="50" dest="KATANA_Obstacle_IR_US_Filter.us_front_right" interface="" source="Base_Config_No_Jury.US_range_front_right" />
+				<connection connection_priority="50" dest="KATANA_Obstacle_IR_US_Filter.ir_front_center_short" interface="" source="Base_Config_No_Jury.IR_front_center_shortrange" />
+				<connection connection_priority="50" dest="KATANA_Obstacle_IR_US_Filter.ir_front_right_short" interface="" source="Base_Config_No_Jury.IR_front_right_shortrange" />
+				<connection connection_priority="50" dest="KATANA_Obstacle_IR_US_Filter.us_front_left" interface="" source="Base_Config_No_Jury.US_range_front_left" />
+				<connection connection_priority="50" dest="KATANA_Obstacle_IR_US_Filter.ir_front_center_long" interface="" source="Base_Config_No_Jury.IR_front_center_longrange" />
+				<connection connection_priority="50" dest="KATANA_Obstacle_IR_US_Filter.ir_front_right_long" interface="" source="Base_Config_No_Jury.IR_front_right_longrange" />
+				<connection connection_priority="50" dest="KATANA_Obstacle_IR_US_Filter.us_rear_right" interface="" source="Base_Config_No_Jury.US_range_rear_right" />
+				<connection connection_priority="50" dest="KATANA_Obstacle_IR_US_Filter.us_rear_left" interface="" source="Base_Config_No_Jury.US_range_rear_left" />
+				<connection connection_priority="50" dest="KATANA_Mission_Control_Filter.mc_obstacles" interface="" source="KATANA_Obstacle_IR_US_Filter.obstacles" />
+				<connection connection_priority="50" dest="KATANA_Obstacle_IR_US_Filter.obstacle_pose_buf" interface="" source="KATANA_Odometry_Filter.pose_buffer" />
+				<connection connection_priority="50" dest="KATANA_Obstacle_IR_US_Filter.ir_rear_left_short" interface="" source="Base_Config_No_Jury.IR_rear_left_shortrange" />
+				<connection connection_priority="50" dest="KATANA_Obstacle_IR_US_Filter.ir_rear_right_short" interface="" source="Base_Config_No_Jury.IR_rear_right_shortrange" />
+				<filter alias="KATANA_Marker_Detection_Filter" idref="adtf.aadc.katana.makerDetection" priority="8">
+					<settings>
+						<property name="Dictionary File For Markers" type="String" value="../../../../calibration_files/roadsign.yml" />
+					</settings>
+				</filter>
+				<connection connection_priority="50" dest="KATANA_Marker_Detection_Filter.Video_RGB_input" interface="" source="AADC_Xtion_Camera.Video_RGB" />
+				<connection connection_priority="50" dest="KATANA_Marker_Detection_Filter.pose_input" interface="" source="KATANA_Odometry_Filter.pose_buffer" />
+				<connection connection_priority="50" dest="KATANA_Odometry_Filter.odo_status" interface="" source="KATANA_Mission_Control_Filter.mc_status" />
+				<connection connection_priority="50" dest="KATANA_Mission_Control_Filter.mc_traffic_signs_input" interface="" source="KATANA_Marker_Detection_Filter.road_signs" />
+				<connection connection_priority="50" dest="Base_Config_No_Jury.hazzardLightsEnabled" interface="" source="KATANA_Mission_Control_Filter.warningLightsEnabled" />
+			</graph>
+		</configuration>
+		<configuration description="" name="Competition">
+			<graph>
+				<filter alias="AADC_Watchdog_Trigger" idref="adtf.aadc.watchdogGuard" priority="1" />
+				<filter alias="AADC_Xtion_Camera" idref="adtf.aadc.xtionCaptureDevice" priority="2">
+					<settings>
+						<property name="Configuration File" type="String" value="../../../../calibration_files/xtionSettings.xml" />
+					</settings>
+				</filter>
+				<filter alias="KATANA_Lanetracker" idref="adtf.aadc.lanetracker" priority="3">
+					<settings>
+						<property name="Binary-Threshold" type="Int" value="120" />
+						<property name="IPM-Config" type="String" value="../../../../src/adtfUser/common/patches/katana_config.xml" />
+					</settings>
+				</filter>
+				<filter alias="KATANA_Mission_Control_Filter" idref="adtf.aadc.mission_control" priority="4">
+					<settings>
+						<property name="Maneuver-Config" type="String" value="../../../competition/BaseConfig/files/Maneuverlist.xml" />
+						<property name="MC-Config" type="String" value="../../../../src/adtfUser/common/patches/config_mc.xml" />
+						<property name="Patch-Config" type="String" value="../../../../src/adtfUser/common/patches/patches.xml" />
+					</settings>
+				</filter>
+				<filter alias="KATANA_Odometry_Filter" idref="adtf.aadc.odometry" priority="5" />
+				<filter alias="KATANA_Obstacle_IR_US_Filter" idref="adtf.aadc.obstacle" priority="6" />
+				<filter alias="KATANA_Marker_Detection_Filter" idref="adtf.aadc.katana.makerDetection" priority="7">
+					<settings>
+						<property name="Dictionary File For Markers" type="String" value="../../../../calibration_files/roadsign.yml" />
+						<property name="MIN_SIGN_ASPECT_RATIO" type="Float" value="0.8" />
+					</settings>
+				</filter>
+				<subgraph alias="Base_Config" idref="Base_Config" priority="8" />
+				<connection connection_priority="50" dest="KATANA_Lanetracker.input" interface="" source="AADC_Xtion_Camera.Video_RGB" />
+				<connection connection_priority="50" dest="KATANA_Lanetracker.consistent_patches" interface="" source="KATANA_Mission_Control_Filter.mc_patches" />
+				<connection connection_priority="50" dest="KATANA_Mission_Control_Filter.mc_patches_input" interface="" source="KATANA_Lanetracker.mc_patches" />
+				<connection connection_priority="50" dest="KATANA_Mission_Control_Filter.mc_pose_buf" interface="" source="KATANA_Odometry_Filter.pose_buffer" />
+				<connection connection_priority="50" dest="KATANA_Lanetracker.pose_input" interface="" source="KATANA_Odometry_Filter.pose_buffer" />
+				<connection connection_priority="50" dest="KATANA_Marker_Detection_Filter.Video_RGB_input" interface="" source="AADC_Xtion_Camera.Video_RGB" />
+				<connection connection_priority="50" dest="KATANA_Marker_Detection_Filter.pose_input" interface="" source="KATANA_Odometry_Filter.pose_buffer" />
+				<connection connection_priority="50" dest="KATANA_Mission_Control_Filter.mc_obstacles" interface="" source="KATANA_Obstacle_IR_US_Filter.obstacles" />
+				<connection connection_priority="50" dest="KATANA_Obstacle_IR_US_Filter.obstacle_pose_buf" interface="" source="KATANA_Odometry_Filter.pose_buffer" />
+				<connection connection_priority="50" dest="KATANA_Odometry_Filter.odo_status" interface="" source="KATANA_Mission_Control_Filter.mc_status" />
+				<connection connection_priority="50" dest="KATANA_Mission_Control_Filter.mc_traffic_signs_input" interface="" source="KATANA_Marker_Detection_Filter.road_signs" />
+				<connection connection_priority="50" dest="KATANA_Odometry_Filter.wheel_left" interface="" source="Base_Config.WH_WheelSpeed_Sensor_Left" />
+				<connection connection_priority="50" dest="KATANA_Odometry_Filter.wheel_right" interface="" source="Base_Config.WH_WheelSpeed_Sensor_Right" />
+				<connection connection_priority="50" dest="Base_Config.Driver_Struct" interface="" source="KATANA_Mission_Control_Filter.mc_Jury_Driver_State" />
+				<connection connection_priority="50" dest="Base_Config.hazzardLightsEnabled" interface="" source="KATANA_Mission_Control_Filter.warningLightsEnabled" />
+				<connection connection_priority="50" dest="Base_Config.Watchdog_Alive_Flag" interface="" source="AADC_Watchdog_Trigger.WatchdogAliveSignal" />
+				<connection connection_priority="50" dest="Base_Config.accelerate" interface="" source="KATANA_Mission_Control_Filter.mc_speed" />
+				<connection connection_priority="50" dest="Base_Config.steerAngle" interface="" source="KATANA_Mission_Control_Filter.mc_steering" />
+				<connection connection_priority="50" dest="Base_Config.headLightEnabled" interface="" source="KATANA_Mission_Control_Filter.headLightEnabled" />
+				<connection connection_priority="50" dest="Base_Config.brakeLightEnabled" interface="" source="KATANA_Mission_Control_Filter.brakeLightEnabled" />
+				<connection connection_priority="50" dest="Base_Config.turnSignalLeftEnabled" interface="" source="KATANA_Mission_Control_Filter.turnSignalLeftEnabled" />
+				<connection connection_priority="50" dest="Base_Config.turnSignalRightEnabled" interface="" source="KATANA_Mission_Control_Filter.turnSignalRightEnabled" />
+				<connection connection_priority="50" dest="Base_Config.reverseLightsEnabled" interface="" source="KATANA_Mission_Control_Filter.reverseLightEnabled" />
+				<connection connection_priority="50" dest="KATANA_Mission_Control_Filter.mc_Jury" interface="" source="Base_Config.Jury_Struct" />
+				<connection connection_priority="50" dest="KATANA_Obstacle_IR_US_Filter.ir_front_left_long" interface="" source="Base_Config.IR_front_left_longrange" />
+				<connection connection_priority="50" dest="KATANA_Obstacle_IR_US_Filter.ir_rear_center_short" interface="" source="Base_Config.IR_rear_center_shortrange" />
+				<connection connection_priority="50" dest="KATANA_Odometry_Filter.steering_angle" interface="" source="Base_Config.ST_steeringAngle" />
+				<connection connection_priority="50" dest="KATANA_Obstacle_IR_US_Filter.us_front_right" interface="" source="Base_Config.US_range_front_right" />
+				<connection connection_priority="50" dest="KATANA_Obstacle_IR_US_Filter.ir_front_center_short" interface="" source="Base_Config.IR_front_center_shortrange" />
+				<connection connection_priority="50" dest="KATANA_Obstacle_IR_US_Filter.ir_front_right_short" interface="" source="Base_Config.IR_front_right_shortrange" />
+				<connection connection_priority="50" dest="KATANA_Obstacle_IR_US_Filter.us_rear_right" interface="" source="Base_Config.US_range_rear_right" />
+				<connection connection_priority="50" dest="KATANA_Obstacle_IR_US_Filter.ir_rear_right_short" interface="" source="Base_Config.IR_rear_right_shortrange" />
+				<connection connection_priority="50" dest="KATANA_Obstacle_IR_US_Filter.ir_front_right_long" interface="" source="Base_Config.IR_front_right_longrange" />
+				<connection connection_priority="50" dest="KATANA_Obstacle_IR_US_Filter.us_rear_left" interface="" source="Base_Config.US_range_rear_left" />
+				<connection connection_priority="50" dest="KATANA_Obstacle_IR_US_Filter.us_front_left" interface="" source="Base_Config.US_range_front_left" />
+				<connection connection_priority="50" dest="KATANA_Obstacle_IR_US_Filter.ir_front_left_short" interface="" source="Base_Config.IR_front_left_shortrange" />
+				<connection connection_priority="50" dest="KATANA_Obstacle_IR_US_Filter.ir_front_center_long" interface="" source="Base_Config.IR_front_center_longrange" />
+				<connection connection_priority="50" dest="KATANA_Obstacle_IR_US_Filter.ir_rear_left_short" interface="" source="Base_Config.IR_rear_left_shortrange" />
+			</graph>
+		</configuration>
+	</configurations>
+	<fileinfo adtfversion="2.12.1beta" configversion="1.3" />
+	<configuration_settings />
+	<adtf_include source="../../../../competition/BaseConfig/IncludeConfig.xml" />
+	<adtf_include source="../../../competition/BaseConfig/IncludeConfig.xml" />
+</adtf:project>

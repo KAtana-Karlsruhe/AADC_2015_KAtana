@@ -1,0 +1,5 @@
+<adtf:export xmlns:adtf="adtf">
+	<layout name="Jury_Config">
+		<filter Docked="false" Floating="false" Fullscreen="false" Height="240" Maximized="false" Minimized="false" PosX="0" PosY="0" TopOfMain="false" Visible="true" Width="320" name="AADC_Jury_Module" />
+	</layout>
+</adtf:export>

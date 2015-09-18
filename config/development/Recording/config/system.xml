@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<adtf:project xmlns:adtf="adtf">
+	<general_settings>
+		<property name="active_configuration" type="String" value="record_drive" />
+		<property name="enable_messagebus" type="Bool" value="true" />
+		<property name="synchronizing_type" type="Int" value="1" />
+		<property name="global_log_level" type="Int" value="3" />
+		<property name="media_description_files" type="String" value="./../description/*.description;./../addons/*/description/*.description;./../src/examples/src/description/*.description;../../../../src/adtfBase/AADC_ADTF_BaseFilters/1.1.0/description/aadc.description;../../../../src/adtfBase/AADC_ADTF_ImageProcFilters/1.1.0/description/aadcImgProc.description" />
+	</general_settings>
+	<configurations>
+		<configuration description="" name="Image_Process">
+			<graph>
+				<inport alias="image_in" />
+				<outport alias="struct_out" />
+			</graph>
+		</configuration>
+		<configuration description="" name="Main">
+			<graph>
+				<filter alias="AADC_Car_Visualization" idref="adtf.aadc.aadc_car_control" priority="1" />
+				<filter alias="AADC_Attitude_Converter" idref="adtf.aadc.quaternion" priority="2" />
+				<filter alias="AADC_Calibration_Scaling" idref="adtf.aadc.calibrationScaling" priority="3">
+					<settings>
+						<property name="Scale Factor" type="Float" value="57,29578.0" />
+					</settings>
+				</filter>
+				<filter alias="AADC_Calibration_Scaling2" idref="adtf.aadc.calibrationScaling" priority="4">
+					<settings>
+						<property name="Scale Factor" type="Float" value="57,29578.0" />
+					</settings>
+				</filter>
+				<filter alias="AADC_Calibration_Scaling3" idref="adtf.aadc.calibrationScaling" priority="5">
+					<settings>
+						<property name="Scale Factor" type="Float" value="57,29578.0" />
+					</settings>
+				</filter>
+				<connection connection_priority="50" dest="AADC_Calibration_Scaling.input_value" interface="" source="AADC_Attitude_Converter.yaw" />
+				<connection connection_priority="50" dest="AADC_Calibration_Scaling2.input_value" interface="" source="AADC_Attitude_Converter.pitch" />
+				<connection connection_priority="50" dest="AADC_Calibration_Scaling3.input_value" interface="" source="AADC_Attitude_Converter.roll" />
+				<connection connection_priority="50" dest="AADC_Car_Visualization.yaw" interface="" source="AADC_Calibration_Scaling.output_value" />
+				<connection connection_priority="50" dest="AADC_Car_Visualization.pitch" interface="" source="AADC_Calibration_Scaling2.output_value" />
+				<connection connection_priority="50" dest="AADC_Car_Visualization.roll" interface="" source="AADC_Calibration_Scaling3.output_value" />
+				<filter alias="AADC_RPM_Calculation" idref="adtf.aadc.rpmcalculation" priority="6" />
+				<connection connection_priority="50" dest="AADC_Car_Visualization.RPM_left" interface="" source="AADC_RPM_Calculation.RPM_left_Wheel" />
+				<connection connection_priority="50" dest="AADC_Car_Visualization.RPM_right" interface="" source="AADC_RPM_Calculation.RPM_right_Wheel" />
+				<filter alias="AADC_Watchdog_Trigger" idref="adtf.aadc.watchdogGuard" priority="7" />
+				<filter alias="AADC_Calibration_Scaling4" idref="adtf.aadc.calibrationScaling" priority="7">
+					<settings>
+						<property name="Scale Factor" type="Float" value="4,15.0" />
+					</settings>
+				</filter>
+				<filter alias="AADC_Calibration_Scaling5" idref="adtf.aadc.calibrationScaling" priority="8">
+					<settings>
+						<property name="Scale Factor" type="Float" value="4,15.0" />
+					</settings>
+				</filter>
+				<connection connection_priority="50" dest="AADC_Car_Visualization.distance_right" interface="" source="AADC_Calibration_Scaling4.output_value" />
+				<connection connection_priority="50" dest="AADC_Car_Visualization.distance_left" interface="" source="AADC_Calibration_Scaling5.output_value" />
+				<filter alias="AADC_Xtion_Camera" idref="adtf.aadc.xtionCaptureDevice" priority="9">
+					<settings>
+						<property name="Configuration File" type="String" value="../../../../calibration_files/xtionSettings.xml" />
+					</settings>
+				</filter>
+				<subgraph alias="Base_Config2" idref="Base_Config" priority="10" />
+				<connection connection_priority="50" dest="AADC_Attitude_Converter.quaternion_gyro_x" interface="" source="Base_Config2.GYR_quaternion_gyro_x" />
+				<connection connection_priority="50" dest="AADC_Attitude_Converter.quaternion_gyro_z" interface="" source="Base_Config2.GYR_quaternion_gyro_z" />
+				<connection connection_priority="50" dest="AADC_Attitude_Converter.quaternion_gyro_y" interface="" source="Base_Config2.GYR_quaternion_gyro_y" />
+				<connection connection_priority="50" dest="AADC_Attitude_Converter.quaternion_gyro_w" interface="" source="Base_Config2.GYR_quaternion_gyro_w" />
+				<connection connection_priority="50" dest="AADC_Car_Visualization.steering_angle" interface="" source="Base_Config2.ST_steeringAngle" />
+				<connection connection_priority="50" dest="AADC_Car_Visualization.acc_x" interface="" source="Base_Config2.ACC_acc_x" />
+				<connection connection_priority="50" dest="AADC_Car_Visualization.acc_z" interface="" source="Base_Config2.ACC_acc_z" />
+				<connection connection_priority="50" dest="AADC_Car_Visualization.acc_y" interface="" source="Base_Config2.ACC_acc_y" />
+				<connection connection_priority="50" dest="AADC_Car_Visualization.ir_front_left_short" interface="" source="Base_Config2.IR_front_left_shortrange" />
+				<connection connection_priority="50" dest="AADC_Car_Visualization.ir_rear_left_short" interface="" source="Base_Config2.IR_rear_left_shortrange" />
+				<connection connection_priority="50" dest="AADC_RPM_Calculation.wheel_speed_sensor_left" interface="" source="Base_Config2.WH_WheelSpeed_Sensor_Left" />
+				<connection connection_priority="50" dest="AADC_Car_Visualization.ir_front_left_long" interface="" source="Base_Config2.IR_front_left_longrange" />
+				<connection connection_priority="50" dest="AADC_Car_Visualization.ir_rear_center_short" interface="" source="Base_Config2.IR_rear_center_shortrange" />
+				<connection connection_priority="50" dest="AADC_RPM_Calculation.wheel_speed_sensor_right" interface="" source="Base_Config2.WH_WheelSpeed_Sensor_Right" />
+				<connection connection_priority="50" dest="AADC_Car_Visualization.range_front_right" interface="" source="Base_Config2.US_range_front_right" />
+				<connection connection_priority="50" dest="AADC_Car_Visualization.ir_front_center_short" interface="" source="Base_Config2.IR_front_center_shortrange" />
+				<connection connection_priority="50" dest="AADC_Car_Visualization.ir_front_right_short" interface="" source="Base_Config2.IR_front_right_shortrange" />
+				<connection connection_priority="50" dest="AADC_Car_Visualization.range_front_left" interface="" source="Base_Config2.US_range_front_left" />
+				<connection connection_priority="50" dest="AADC_Car_Visualization.ir_front_center_long" interface="" source="Base_Config2.IR_front_center_longrange" />
+				<connection connection_priority="50" dest="AADC_Car_Visualization.voltage_engine" interface="" source="Base_Config2.VOLT_power_circuit" />
+				<connection connection_priority="50" dest="AADC_Car_Visualization.ir_front_right_long" interface="" source="Base_Config2.IR_front_right_longrange" />
+				<connection connection_priority="50" dest="AADC_Car_Visualization.range_rear_right" interface="" source="Base_Config2.US_range_rear_right" />
+				<connection connection_priority="50" dest="AADC_Car_Visualization.ir_rear_right_short" interface="" source="Base_Config2.IR_rear_right_shortrange" />
+				<connection connection_priority="50" dest="AADC_Car_Visualization.range_rear_left" interface="" source="Base_Config2.US_range_rear_left" />
+				<connection connection_priority="50" dest="AADC_Car_Visualization.voltage_meassurement" interface="" source="Base_Config2.VOLT_measurement_circuit" />
+				<connection connection_priority="50" dest="AADC_Calibration_Scaling4.input_value" interface="" source="Base_Config2.WH_WheelSpeed_Sensor_Right" />
+				<connection connection_priority="50" dest="AADC_Calibration_Scaling5.input_value" interface="" source="Base_Config2.WH_WheelSpeed_Sensor_Left" />
+				<connection connection_priority="50" dest="Base_Config2.Watchdog_Alive_Flag" interface="" source="AADC_Watchdog_Trigger.WatchdogAliveSignal" />
+				<connection connection_priority="50" dest="Base_Config2.accelerate" interface="" source="AADC_Car_Visualization.accelerate" />
+				<connection connection_priority="50" dest="Base_Config2.headLightEnabled" interface="" source="AADC_Car_Visualization.headLightEnabled" />
+				<connection connection_priority="50" dest="Base_Config2.turnSignalLeftEnabled" interface="" source="AADC_Car_Visualization.turnSignalLeftEnabled" />
+				<connection connection_priority="50" dest="Base_Config2.turnSignalRightEnabled" interface="" source="AADC_Car_Visualization.turnSignalRightEnabled" />
+				<connection connection_priority="50" dest="Base_Config2.brakeLightEnabled" interface="" source="AADC_Car_Visualization.brakeLightEnabled" />
+				<connection connection_priority="50" dest="Base_Config2.reverseLightsEnabled" interface="" source="AADC_Car_Visualization.reverseLightEnabled" />
+				<connection connection_priority="50" dest="Base_Config2.steerAngle" interface="" source="AADC_Car_Visualization.steerAngle" />
+				<filter alias="AADC_Driver_Module" idref="adtf.aadc.driver_filter" priority="11" />
+				<connection connection_priority="50" dest="AADC_Driver_Module.Stop_Flag" interface="" source="Base_Config2.Stop_Flag" />
+				<connection connection_priority="50" dest="AADC_Driver_Module.Run_Maneuver" interface="" source="Base_Config2.Run_Maneuver" />
+				<connection connection_priority="50" dest="Base_Config2.Driver_State" interface="" source="AADC_Driver_Module.Driver_State" />
+			</graph>
+		</configuration>
+		<configuration description="UDP Remote for driving" name="just_driving">
+			<graph>
+				<filter alias="Remote_control_via_udp" idref="adtf.aadc.udp.remote" priority="1" />
+				<filter alias="AADC_Watchdog_Trigger" idref="adtf.aadc.watchdogGuard" priority="7" />
+				<subgraph alias="Base_Config_MOD" idref="Base_Config_MOD" priority="3" />
+				<connection connection_priority="50" dest="Base_Config_MOD.accelerate" interface="" source="Remote_control_via_udp.accelerate" />
+				<connection connection_priority="50" dest="Base_Config_MOD.steerAngle" interface="" source="Remote_control_via_udp.steerAngle" />
+				<connection connection_priority="50" dest="Base_Config_MOD.Watchdog_Alive_Flag" interface="" source="AADC_Watchdog_Trigger.WatchdogAliveSignal" />
+			</graph>
+		</configuration>
+		<configuration description="UDP Remote for driving" name="record_drive">
+			<graph>
+				<filter alias="Remote_control_via_udp" idref="adtf.aadc.udp.remote" priority="1" />
+				<filter alias="AADC_Watchdog_Trigger" idref="adtf.aadc.watchdogGuard" priority="2" />
+				<filter alias="AADC_Attitude_Converter" idref="adtf.aadc.quaternion" priority="2" />
+				<filter alias="AADC_Calibration_Scaling" idref="adtf.aadc.calibrationScaling" priority="3">
+					<settings>
+						<property name="Scale Factor" type="Float" value="57,29578.0" />
+					</settings>
+				</filter>
+				<filter alias="AADC_Calibration_Scaling2" idref="adtf.aadc.calibrationScaling" priority="4">
+					<settings>
+						<property name="Scale Factor" type="Float" value="57,29578.0" />
+					</settings>
+				</filter>
+				<filter alias="AADC_Calibration_Scaling3" idref="adtf.aadc.calibrationScaling" priority="5">
+					<settings>
+						<property name="Scale Factor" type="Float" value="57,29578.0" />
+					</settings>
+				</filter>
+				<filter alias="AADC_Xtion_Camera" idref="adtf.aadc.xtionCaptureDevice" priority="6">
+					<settings>
+						<property name="Configuration File" type="String" value="/home/odroid/AADC/calibration_files/xtionSettings.xml" />
+					</settings>
+				</filter>
+				<filter alias="Harddisk_Recorder" idref="adtf.stg.harddisk_recorder" priority="2">
+					<settings>
+						<property name="filename" type="String" value="/home/odroid/Records/record" />
+						<property name="start_on_startup" type="Bool" value="true" />
+					</settings>
+				</filter>
+				<subgraph alias="Base_Config_MOD" idref="Base_Config_MOD" priority="3" />
+				<connection connection_priority="50" dest="Base_Config_MOD.accelerate" interface="" source="Remote_control_via_udp.accelerate" />
+				<connection connection_priority="50" dest="Base_Config_MOD.steerAngle" interface="" source="Remote_control_via_udp.steerAngle" />
+				<connection connection_priority="50" dest="Base_Config_MOD.Watchdog_Alive_Flag" interface="" source="AADC_Watchdog_Trigger.WatchdogAliveSignal" />
+				<connection connection_priority="50" dest="AADC_Attitude_Converter.quaternion_gyro_x" interface="" source="Base_Config_MOD.GYR_quaternion_gyro_x" />
+				<connection connection_priority="50" dest="AADC_Attitude_Converter.quaternion_gyro_w" interface="" source="Base_Config_MOD.GYR_quaternion_gyro_w" />
+				<connection connection_priority="50" dest="AADC_Attitude_Converter.quaternion_gyro_z" interface="" source="Base_Config_MOD.GYR_quaternion_gyro_z" />
+				<connection connection_priority="50" dest="AADC_Attitude_Converter.quaternion_gyro_y" interface="" source="Base_Config_MOD.GYR_quaternion_gyro_y" />
+				<connection connection_priority="50" dest="AADC_Calibration_Scaling.input_value" interface="" source="AADC_Attitude_Converter.yaw" />
+				<connection connection_priority="50" dest="AADC_Calibration_Scaling2.input_value" interface="" source="AADC_Attitude_Converter.pitch" />
+				<connection connection_priority="50" dest="AADC_Calibration_Scaling3.input_value" interface="" source="AADC_Attitude_Converter.roll" />
+				<connection connection_priority="50" dest="Harddisk_Recorder.yaw" interface="" source="AADC_Calibration_Scaling.output_value" />
+				<connection connection_priority="50" dest="Harddisk_Recorder.pitch" interface="" source="AADC_Calibration_Scaling2.output_value" />
+				<connection connection_priority="50" dest="Harddisk_Recorder.roll" interface="" source="AADC_Calibration_Scaling3.output_value" />
+				<connection connection_priority="50" dest="Harddisk_Recorder.steeringAngle" interface="" source="Base_Config_MOD.ST_steeringAngle" />
+				<connection connection_priority="50" dest="Harddisk_Recorder.WH_WheelSpeed_Sensor_Right" interface="" source="Base_Config_MOD.WH_WheelSpeed_Sensor_Right" />
+				<connection connection_priority="50" dest="Harddisk_Recorder.WH_WheelSpeed_Sensor_Left" interface="" source="Base_Config_MOD.WH_WheelSpeed_Sensor_Left" />
+				<connection connection_priority="50" dest="Harddisk_Recorder.ACC_acc_x" interface="" source="Base_Config_MOD.ACC_acc_x" />
+				<connection connection_priority="50" dest="Harddisk_Recorder.ACC_acc_y" interface="" source="Base_Config_MOD.ACC_acc_y" />
+				<connection connection_priority="50" dest="Harddisk_Recorder.ACC_acc_z" interface="" source="Base_Config_MOD.ACC_acc_z" />
+				<connection connection_priority="50" dest="Harddisk_Recorder.Video_RGB" interface="" source="AADC_Xtion_Camera.Video_RGB" />
+			</graph>
+		</configuration>
+	</configurations>
+	<fileinfo adtfversion="2.12.0" configversion="1.3" />
+	<configuration_settings />
+	<adtf_include source="../../../competition/BaseConfig/IncludeConfig.xml" />
+	<adtf_include source="../include_adapted_conf.xml" />
+</adtf:project>

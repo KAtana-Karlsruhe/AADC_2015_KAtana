@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<adtf:configuration xmlns:adtf="adtf">
+	<ce_layouts>
+		<configuration horizontal_scrollbar_value="17" name="Jury_Main_localhost" show="true" tab_pos="0" vertical_scrollbar_value="1" zoomfactor="1,000000">
+			<component height="46" name="Emergency_Stop_Loopback" width="183" x="32" y="32" />
+			<component height="46" name="Jury_Struct_Loopback" width="148" x="32" y="266" />
+			<component height="46" name="Watchdog_Loop_out" width="138" x="644" y="32" />
+			<component height="46" name="Emergency_Stop" width="119" x="644" y="188" />
+			<component height="46" name="Jury_Struct" width="84" x="644" y="110" />
+			<component height="46" name="Watchdog_Loop_in" width="129" x="32" y="110" />
+			<component height="46" name="Driver_Struct" width="96" x="32" y="188" />
+			<component height="146" name="Jury_Config" width="309" x="279" y="32" />
+			<connection dest="Jury_Config" dest_pin="Emergency_Stop_Loopback" reldiff="0" shape_type="3" source="" source_pin="Emergency_Stop_Loopback" x_p2="218" x_p3="218" x_p4="218" x_p5="218" y_p2="0" y_p3="146" y_p4="146" y_p5="0" />
+			<connection dest="Jury_Config" dest_pin="Jury_Struct_Loopback" reldiff="0" shape_type="4" source="" source_pin="Jury_Struct_Loopback" x_p2="217" x_p3="217" x_p4="217" x_p5="217" y_p2="0" y_p3="122" y_p4="122" y_p5="0" />
+			<connection dest="Jury_Config" dest_pin="Driver_Struct" reldiff="0" shape_type="4" source="" source_pin="Driver_Struct" x_p2="219" x_p3="219" x_p4="219" x_p5="219" y_p2="0" y_p3="74" y_p4="74" y_p5="0" />
+			<connection dest="" dest_pin="Emergency_Stop" reldiff="0" shape_type="3" source="Jury_Config" source_pin="Emergency_Stop" x_p2="608" x_p3="608" x_p4="608" x_p5="608" y_p2="0" y_p3="201" y_p4="201" y_p5="0" />
+			<connection dest="" dest_pin="Jury_Struct" reldiff="0" shape_type="3" source="Jury_Config" source_pin="Jury_Struct" x_p2="604" x_p3="604" x_p4="604" x_p5="604" y_p2="0" y_p3="123" y_p4="123" y_p5="0" />
+			<connection dest="" dest_pin="Watchdog_Loop_out" reldiff="0" shape_type="4" source="Jury_Config" source_pin="Watchdog_Loop_out" x_p2="608" x_p3="608" x_p4="686" x_p5="686" y_p2="0" y_p3="45" y_p4="45" y_p5="0" />
+			<connection dest="Jury_Config" dest_pin="Watchdog_Loop_in" reldiff="0" shape_type="4" source="" source_pin="Watchdog_Loop_in" x_p2="215" x_p3="215" x_p4="215" x_p5="215" y_p2="0" y_p3="98" y_p4="98" y_p5="0" />
+		</configuration>
+		<configuration horizontal_scrollbar_value="21" name="Jury_Main_IP_ENV_VAR" show="true" tab_pos="1" vertical_scrollbar_value="1" zoomfactor="1,000000">
+			<component height="46" name="Emergency_Stop_Loopback" width="183" x="32" y="32" />
+			<component height="46" name="Jury_Struct_Loopback" width="148" x="32" y="266" />
+			<component height="46" name="Watchdog_Loop_out" width="138" x="644" y="188" />
+			<component height="46" name="Emergency_Stop" width="119" x="644" y="32" />
+			<component height="46" name="Jury_Struct" width="84" x="644" y="110" />
+			<component height="46" name="Driver_Struct" width="96" x="32" y="110" />
+			<component height="46" name="Watchdog_Loop_in" width="129" x="32" y="188" />
+			<component height="146" name="Jury_Config" width="309" x="279" y="32" />
+			<connection dest="Jury_Config" dest_pin="Emergency_Stop_Loopback" reldiff="0" shape_type="3" source="" source_pin="Emergency_Stop_Loopback" x_p2="218" x_p3="218" x_p4="218" x_p5="218" y_p2="0" y_p3="146" y_p4="146" y_p5="0" />
+			<connection dest="Jury_Config" dest_pin="Jury_Struct_Loopback" reldiff="0" shape_type="4" source="" source_pin="Jury_Struct_Loopback" x_p2="217" x_p3="217" x_p4="217" x_p5="217" y_p2="0" y_p3="122" y_p4="122" y_p5="0" />
+			<connection dest="" dest_pin="Watchdog_Loop_out" reldiff="0" shape_type="3" source="Jury_Config" source_pin="Watchdog_Loop_out" x_p2="608" x_p3="608" x_p4="608" x_p5="608" y_p2="0" y_p3="201" y_p4="201" y_p5="0" />
+			<connection dest="" dest_pin="Jury_Struct" reldiff="0" shape_type="3" source="Jury_Config" source_pin="Jury_Struct" x_p2="604" x_p3="604" x_p4="604" x_p5="604" y_p2="0" y_p3="123" y_p4="123" y_p5="0" />
+			<connection dest="" dest_pin="Emergency_Stop" reldiff="0" shape_type="4" source="Jury_Config" source_pin="Emergency_Stop" x_p2="600" x_p3="600" x_p4="600" x_p5="600" y_p2="0" y_p3="45" y_p4="45" y_p5="0" />
+			<connection dest="Jury_Config" dest_pin="Watchdog_Loop_in" reldiff="0" shape_type="4" source="" source_pin="Watchdog_Loop_in" x_p2="219" x_p3="219" x_p4="219" x_p5="219" y_p2="0" y_p3="98" y_p4="98" y_p5="0" />
+			<connection dest="Jury_Config" dest_pin="Driver_Struct" reldiff="0" shape_type="4" source="" source_pin="Driver_Struct" x_p2="215" x_p3="215" x_p4="215" x_p5="215" y_p2="0" y_p3="74" y_p4="74" y_p5="0" />
+		</configuration>
+		<configuration horizontal_scrollbar_value="85" name="Base_Config" show="true" tab_pos="2" vertical_scrollbar_value="104" zoomfactor="1,000000">
+			<component height="46" name="VOLT_measurement_circuit" width="179" x="2517" y="32" />
+			<component height="46" name="GYR_quaternion_gyro_y" width="157" x="2127" y="2090" />
+			<component height="46" name="ACC_acc_z" width="79" x="2517" y="1124" />
+			<component height="46" name="US_range_rear_left" width="129" x="2127" y="400" />
+			<component height="46" name="IR_rear_right_shortrange" width="165" x="2517" y="812" />
+			<component height="46" name="US_range_rear_right" width="139" x="2127" y="478" />
+			<component height="46" name="IR_front_right_longrange" width="165" x="2517" y="500" />
+			<component height="46" name="IR_front_center_longrange" width="175" x="2517" y="188" />
+			<component height="46" name="VOLT_power_circuit" width="132" x="2517" y="110" />
+			<component height="46" name="GYR_quaternion_gyro_z" width="156" x="2127" y="2168" />
+			<component height="46" name="US_range_front_left" width="134" x="2127" y="244" />
+			<component height="46" name="ACC_acc_y" width="80" x="2517" y="1046" />
+			<component height="46" name="IR_front_right_shortrange" width="170" x="2517" y="578" />
+			<component height="46" name="IR_front_center_shortrange" width="180" x="2517" y="266" />
+			<component height="46" name="US_range_front_right" width="144" x="2127" y="322" />
+			<component height="46" name="WH_WheelSpeed_Sensor_Right" width="203" x="2127" y="2324" />
+			<component height="46" name="GYR_quaternion_gyro_w" width="160" x="2127" y="1934" />
+			<component height="46" name="ST_steeringAngle" width="120" x="2517" y="890" />
+			<component height="46" name="IR_rear_center_shortrange" width="175" x="2517" y="656" />
+			<component height="46" name="IR_front_left_longrange" width="155" x="2517" y="344" />
+			<component height="46" name="Jury_Struct" width="84" x="667" y="330" />
+			<component height="46" name="WH_WheelSpeed_Sensor_Left" width="194" x="2127" y="2246" />
+			<component height="46" name="GYR_quaternion_gyro_x" width="157" x="2127" y="2012" />
+			<component height="46" name="ACC_acc_x" width="80" x="2517" y="968" />
+			<component height="46" name="IR_rear_left_shortrange" width="155" x="2517" y="734" />
+			<component height="46" name="IR_front_left_shortrange" width="160" x="2517" y="422" />
+			<component height="46" name="Driver_Struct" width="96" x="32" y="188" />
+			<component height="46" name="turnSignalLeftEnabled" width="151" x="242" y="322" />
+			<component height="46" name="reverseLightsEnabled" width="146" x="242" y="556" />
+			<component height="46" name="turnSignalRightEnabled" width="160" x="242" y="400" />
+			<component height="46" name="Watchdog_Alive_Flag" width="142" x="32" y="266" />
+			<component height="46" name="accelerate" width="78" x="32" y="110" />
+			<component height="46" name="headLightEnabled" width="126" x="242" y="244" />
+			<component height="46" name="steerAngle" width="80" x="32" y="32" />
+			<component height="46" name="brakeLightEnabled" width="130" x="242" y="478" />
+			<component height="166" name="Jury_Config" width="309" x="246" y="621" />
+			<component height="218" name="AADC_Arduino_Sensors" width="254" x="1239" y="32">
+				<input_pin name="ArduinoCOM_input" />
+				<output_pin name="ultrasonic_sensors" />
+				<output_pin name="infrared_sensors" />
+				<output_pin name="steering_servo" />
+				<output_pin name="accelerometer" />
+				<output_pin name="gyroscope" />
+				<output_pin name="wheel_speed_sensor" />
+				<output_pin name="system_voltage" />
+			</component>
+			<component height="74" name="AADC_Calibration_Scaling5" width="181" x="2127" y="32">
+				<input_pin name="input_value" />
+				<output_pin name="output_value" />
+			</component>
+			<component height="74" name="AADC_Calibration_Scaling4" width="181" x="2127" y="138">
+				<input_pin name="input_value" />
+				<output_pin name="output_value" />
+			</component>
+			<component height="74" name="AADC_Calibration_Scaling3" width="181" x="2127" y="1828">
+				<input_pin name="input_value" />
+				<output_pin name="output_value" />
+			</component>
+			<component height="74" name="AADC_Calibration_Scaling2" width="181" x="2127" y="1722">
+				<input_pin name="input_value" />
+				<output_pin name="output_value" />
+			</component>
+			<component height="74" name="AADC_Calibration_Scaling" width="173" x="2127" y="1616">
+				<input_pin name="input_value" />
+				<output_pin name="output_value" />
+			</component>
+			<component height="74" name="AADC_Calibration_Filter_Extended12" width="238" x="2127" y="1510">
+				<input_pin name="input_value" />
+				<output_pin name="output_value" />
+			</component>
+			<component height="74" name="AADC_Calibration_Filter_Extended11" width="238" x="2127" y="1404">
+				<input_pin name="input_value" />
+				<output_pin name="output_value" />
+			</component>
+			<component height="74" name="AADC_Calibration_Filter_Extended10" width="238" x="2127" y="1298">
+				<input_pin name="input_value" />
+				<output_pin name="output_value" />
+			</component>
+			<component height="74" name="AADC_Calibration_Filter_Extended9" width="230" x="2127" y="1192">
+				<input_pin name="input_value" />
+				<output_pin name="output_value" />
+			</component>
+			<component height="74" name="AADC_Calibration_Filter_Extended8" width="230" x="2127" y="1086">
+				<input_pin name="input_value" />
+				<output_pin name="output_value" />
+			</component>
+			<component height="74" name="AADC_Calibration_Filter_Extended7" width="230" x="2127" y="980">
+				<input_pin name="input_value" />
+				<output_pin name="output_value" />
+			</component>
+			<component height="74" name="AADC_Calibration_Filter_Extended6" width="230" x="2127" y="874">
+				<input_pin name="input_value" />
+				<output_pin name="output_value" />
+			</component>
+			<component height="74" name="AADC_Calibration_Filter_Extended5" width="230" x="2127" y="768">
+				<input_pin name="input_value" />
+				<output_pin name="output_value" />
+			</component>
+			<component height="74" name="AADC_Calibration_Filter_Extended4" width="230" x="2127" y="662">
+				<input_pin name="input_value" />
+				<output_pin name="output_value" />
+			</component>
+			<component height="74" name="AADC_Calibration_Filter_Extended3" width="230" x="2127" y="556">
+				<input_pin name="input_value" />
+				<output_pin name="output_value" />
+			</component>
+			<component height="98" name="AADC_System_Voltage_Signals" width="291" x="1581" y="32">
+				<input_pin name="system_voltage" />
+				<output_pin name="voltage_measurement_circuit" />
+				<output_pin name="voltage_power_circuit" />
+			</component>
+			<component height="98" name="AADC_Wheel_Speed_Sensor_Signals" width="299" x="1581" y="1100">
+				<input_pin name="wheel_speed_sensor" />
+				<output_pin name="wheel_speed_sensor_left" />
+				<output_pin name="wheel_speed_sensor_right" />
+			</component>
+			<component height="146" name="AADC_Gyroscope_Signals" width="197" x="1581" y="922">
+				<input_pin name="gyroscope" />
+				<output_pin name="quaternion_gyro_w" />
+				<output_pin name="quaternion_gyro_x" />
+				<output_pin name="quaternion_gyro_y" />
+				<output_pin name="quaternion_gyro_z" />
+			</component>
+			<component height="146" name="AADC_Accelerometer_Signals" width="195" x="1581" y="744">
+				<input_pin name="accelerometer" />
+				<output_pin name="acc_x" />
+				<output_pin name="acc_y" />
+				<output_pin name="acc_z" />
+				<output_pin name="temperature" />
+			</component>
+			<component height="74" name="AADC_Steering_Servo_Signals" width="199" x="1581" y="638">
+				<input_pin name="steering_servo" />
+				<output_pin name="steerAngle" />
+			</component>
+			<component height="266" name="AADC_Infrared_Signals" width="314" x="1581" y="340">
+				<input_pin name="infrared_sensors" />
+				<output_pin name="voltage_front_center_longrange" />
+				<output_pin name="voltage_front_center_shortrange" />
+				<output_pin name="voltage_front_left_longrange" />
+				<output_pin name="voltage_front_left_shortrange" />
+				<output_pin name="voltage_front_right_longrange" />
+				<output_pin name="voltage_front_right_shortrange" />
+				<output_pin name="voltage_rear_center_shortrange" />
+				<output_pin name="voltage_rear_left_shortrange" />
+				<output_pin name="voltage_rear_right_shortrange" />
+			</component>
+			<component height="146" name="AADC_Ultrasonic_Signals" width="235" x="1581" y="162">
+				<input_pin name="ultrasonic_sensors" />
+				<output_pin name="range_front_left" />
+				<output_pin name="range_front_right" />
+				<output_pin name="range_rear_left" />
+				<output_pin name="range_rear_right" />
+			</component>
+			<component height="74" name="AADC_Calibration_Filter_Extended2" width="230" x="242" y="32">
+				<input_pin name="input_value" />
+				<output_pin name="output_value" />
+			</component>
+			<component height="74" name="AADC_Calibration_Filter_Extended" width="222" x="242" y="138">
+				<input_pin name="input_value" />
+				<output_pin name="output_value" />
+			</component>
+			<component height="74" name="AADC_Arduino_Communication" width="207" x="992" y="32">
+				<input_pin name="COM_input" />
+				<output_pin name="COM_output" />
+			</component>
+			<component height="266" name="AADC_Arduino_Actuator" width="285" x="667" y="32">
+				<input_pin name="accelerate" />
+				<input_pin name="steerAngle" />
+				<input_pin name="headLightEnabled" />
+				<input_pin name="turnSignalLeftEnabled" />
+				<input_pin name="turnSignalRightEnabled" />
+				<input_pin name="brakeLightEnabled" />
+				<input_pin name="reverseLightsEnabled" />
+				<input_pin name="Watchdog_Alive_Flag" />
+				<input_pin name="Emergency_Stop" />
+				<output_pin name="ArduinoCOM_output" />
+			</component>
+			<connection dest="Jury_Config" dest_pin="Jury_Struct_Loopback" reldiff="0" shape_type="5" source="Jury_Config" source_pin="Jury_Struct" x_p2="567" x_p3="567" x_p4="214" x_p5="214" y_p2="721" y_p3="816" y_p4="816" y_p5="721" />
+			<connection dest="Jury_Config" dest_pin="Watchdog_Loop_in" reldiff="0" shape_type="3" source="" source_pin="Watchdog_Alive_Flag" x_p2="178" x_p3="178" x_p4="178" x_p5="178" y_p2="0" y_p3="712" y_p4="712" y_p5="0" />
+			<connection dest="AADC_Arduino_Actuator" dest_pin="Watchdog_Alive_Flag" reldiff="0" shape_type="4" source="Jury_Config" source_pin="Watchdog_Loop_out" x_p2="575" x_p3="575" x_p4="593" x_p5="593" y_p2="0" y_p3="242" y_p4="242" y_p5="0" />
+			<connection dest="AADC_System_Voltage_Signals" dest_pin="system_voltage" reldiff="0" shape_type="4" source="AADC_Arduino_Sensors" source_pin="system_voltage" x_p2="1529" x_p3="1529" x_p4="1529" x_p5="1529" y_p2="0" y_p3="74" y_p4="74" y_p5="0" />
+			<connection dest="AADC_Wheel_Speed_Sensor_Signals" dest_pin="wheel_speed_sensor" reldiff="0" shape_type="3" source="AADC_Arduino_Sensors" source_pin="wheel_speed_sensor" x_p2="1525" x_p3="1525" x_p4="1525" x_p5="1525" y_p2="0" y_p3="1142" y_p4="1142" y_p5="0" />
+			<connection dest="AADC_Gyroscope_Signals" dest_pin="gyroscope" reldiff="0" shape_type="3" source="AADC_Arduino_Sensors" source_pin="gyroscope" x_p2="1521" x_p3="1521" x_p4="1521" x_p5="1521" y_p2="0" y_p3="964" y_p4="964" y_p5="0" />
+			<connection dest="AADC_Accelerometer_Signals" dest_pin="accelerometer" reldiff="0" shape_type="3" source="AADC_Arduino_Sensors" source_pin="accelerometer" x_p2="1517" x_p3="1517" x_p4="1517" x_p5="1517" y_p2="0" y_p3="786" y_p4="786" y_p5="0" />
+			<connection dest="AADC_Steering_Servo_Signals" dest_pin="steering_servo" reldiff="0" shape_type="3" source="AADC_Arduino_Sensors" source_pin="steering_servo" x_p2="1513" x_p3="1513" x_p4="1513" x_p5="1513" y_p2="0" y_p3="680" y_p4="680" y_p5="0" />
+			<connection dest="AADC_Infrared_Signals" dest_pin="infrared_sensors" reldiff="0" shape_type="3" source="AADC_Arduino_Sensors" source_pin="infrared_sensors" x_p2="1509" x_p3="1509" x_p4="1509" x_p5="1509" y_p2="0" y_p3="382" y_p4="382" y_p5="0" />
+			<connection dest="AADC_Ultrasonic_Signals" dest_pin="ultrasonic_sensors" reldiff="0" shape_type="3" source="AADC_Arduino_Sensors" source_pin="ultrasonic_sensors" x_p2="1505" x_p3="1505" x_p4="1505" x_p5="1505" y_p2="0" y_p3="204" y_p4="204" y_p5="0" />
+			<connection dest="" dest_pin="Jury_Struct" reldiff="0" shape_type="4" source="Jury_Config" source_pin="Jury_Struct" x_p2="571" x_p3="571" x_p4="625" x_p5="625" y_p2="0" y_p3="343" y_p4="343" y_p5="0" />
+			<connection dest="Jury_Config" dest_pin="Driver_Struct" reldiff="0" shape_type="3" source="" source_pin="Driver_Struct" x_p2="179" x_p3="179" x_p4="179" x_p5="179" y_p2="0" y_p3="683" y_p4="683" y_p5="0" />
+			<connection dest="AADC_Arduino_Actuator" dest_pin="Emergency_Stop" reldiff="0" shape_type="4" source="Jury_Config" source_pin="Emergency_Stop" x_p2="567" x_p3="567" x_p4="585" x_p5="585" y_p2="0" y_p3="266" y_p4="266" y_p5="0" />
+			<connection dest="" dest_pin="VOLT_measurement_circuit" reldiff="0" shape_type="4" source="AADC_Calibration_Scaling5" source_pin="output_value" x_p2="2368" x_p3="2368" x_p4="2368" x_p5="2368" y_p2="0" y_p3="45" y_p4="45" y_p5="0" />
+			<connection dest="" dest_pin="VOLT_power_circuit" reldiff="0" shape_type="4" source="AADC_Calibration_Scaling4" source_pin="output_value" x_p2="2372" x_p3="2372" x_p4="2372" x_p5="2372" y_p2="0" y_p3="123" y_p4="123" y_p5="0" />
+			<connection dest="AADC_Calibration_Scaling5" dest_pin="input_value" reldiff="0" shape_type="4" source="AADC_System_Voltage_Signals" source_pin="voltage_power_circuit" x_p2="1900" x_p3="1900" x_p4="1900" x_p5="1900" y_p2="0" y_p3="74" y_p4="74" y_p5="0" />
+			<connection dest="AADC_Calibration_Scaling4" dest_pin="input_value" reldiff="0" shape_type="3" source="AADC_System_Voltage_Signals" source_pin="voltage_measurement_circuit" x_p2="1896" x_p3="1896" x_p4="1896" x_p5="1896" y_p2="0" y_p3="180" y_p4="180" y_p5="0" />
+			<connection dest="" dest_pin="WH_WheelSpeed_Sensor_Right" reldiff="0" shape_type="3" source="AADC_Wheel_Speed_Sensor_Signals" source_pin="wheel_speed_sensor_right" x_p2="1940" x_p3="1940" x_p4="1940" x_p5="1940" y_p2="0" y_p3="2337" y_p4="2337" y_p5="0" />
+			<connection dest="" dest_pin="WH_WheelSpeed_Sensor_Left" reldiff="0" shape_type="3" source="AADC_Wheel_Speed_Sensor_Signals" source_pin="wheel_speed_sensor_left" x_p2="1936" x_p3="1936" x_p4="1936" x_p5="1936" y_p2="0" y_p3="2259" y_p4="2259" y_p5="0" />
+			<connection dest="" dest_pin="GYR_quaternion_gyro_z" reldiff="0" shape_type="3" source="AADC_Gyroscope_Signals" source_pin="quaternion_gyro_z" x_p2="1910" x_p3="1910" x_p4="1910" x_p5="1910" y_p2="0" y_p3="2181" y_p4="2181" y_p5="0" />
+			<connection dest="" dest_pin="GYR_quaternion_gyro_y" reldiff="0" shape_type="3" source="AADC_Gyroscope_Signals" source_pin="quaternion_gyro_y" x_p2="1906" x_p3="1906" x_p4="1906" x_p5="1906" y_p2="0" y_p3="2103" y_p4="2103" y_p5="0" />
+			<connection dest="" dest_pin="GYR_quaternion_gyro_x" reldiff="0" shape_type="3" source="AADC_Gyroscope_Signals" source_pin="quaternion_gyro_x" x_p2="1902" x_p3="1902" x_p4="1902" x_p5="1902" y_p2="0" y_p3="2025" y_p4="2025" y_p5="0" />
+			<connection dest="" dest_pin="GYR_quaternion_gyro_w" reldiff="0" shape_type="3" source="AADC_Gyroscope_Signals" source_pin="quaternion_gyro_w" x_p2="1898" x_p3="1898" x_p4="1898" x_p5="1898" y_p2="0" y_p3="1947" y_p4="1947" y_p5="0" />
+			<connection dest="" dest_pin="ACC_acc_z" reldiff="0" shape_type="4" source="AADC_Calibration_Scaling3" source_pin="output_value" x_p2="2384" x_p3="2384" x_p4="2384" x_p5="2384" y_p2="0" y_p3="1137" y_p4="1137" y_p5="0" />
+			<connection dest="" dest_pin="ACC_acc_y" reldiff="0" shape_type="4" source="AADC_Calibration_Scaling2" source_pin="output_value" x_p2="2380" x_p3="2380" x_p4="2380" x_p5="2380" y_p2="0" y_p3="1059" y_p4="1059" y_p5="0" />
+			<connection dest="" dest_pin="ACC_acc_x" reldiff="0" shape_type="4" source="AADC_Calibration_Scaling" source_pin="output_value" x_p2="2376" x_p3="2376" x_p4="2376" x_p5="2376" y_p2="0" y_p3="981" y_p4="981" y_p5="0" />
+			<connection dest="AADC_Calibration_Scaling3" dest_pin="input_value" reldiff="0" shape_type="3" source="AADC_Accelerometer_Signals" source_pin="acc_z" x_p2="1932" x_p3="1932" x_p4="1932" x_p5="1932" y_p2="0" y_p3="1870" y_p4="1870" y_p5="0" />
+			<connection dest="AADC_Calibration_Scaling2" dest_pin="input_value" reldiff="0" shape_type="3" source="AADC_Accelerometer_Signals" source_pin="acc_y" x_p2="1928" x_p3="1928" x_p4="2115" x_p5="2115" y_p2="0" y_p3="1764" y_p4="1764" y_p5="0" />
+			<connection dest="AADC_Calibration_Scaling" dest_pin="input_value" reldiff="0" shape_type="3" source="AADC_Accelerometer_Signals" source_pin="acc_x" x_p2="1924" x_p3="1924" x_p4="1924" x_p5="1924" y_p2="0" y_p3="1658" y_p4="1658" y_p5="0" />
+			<connection dest="" dest_pin="ST_steeringAngle" reldiff="0" shape_type="4" source="AADC_Calibration_Filter_Extended12" source_pin="output_value" x_p2="2405" x_p3="2405" x_p4="2405" x_p5="2405" y_p2="0" y_p3="903" y_p4="903" y_p5="0" />
+			<connection dest="AADC_Calibration_Filter_Extended12" dest_pin="input_value" reldiff="0" shape_type="3" source="AADC_Steering_Servo_Signals" source_pin="steerAngle" x_p2="1920" x_p3="1920" x_p4="1920" x_p5="1920" y_p2="0" y_p3="1552" y_p4="1552" y_p5="0" />
+			<connection dest="" dest_pin="IR_rear_right_shortrange" reldiff="0" shape_type="4" source="AADC_Calibration_Filter_Extended11" source_pin="output_value" x_p2="2401" x_p3="2401" x_p4="2401" x_p5="2401" y_p2="0" y_p3="825" y_p4="825" y_p5="0" />
+			<connection dest="" dest_pin="IR_rear_left_shortrange" reldiff="0" shape_type="4" source="AADC_Calibration_Filter_Extended10" source_pin="output_value" x_p2="2397" x_p3="2397" x_p4="2397" x_p5="2397" y_p2="0" y_p3="747" y_p4="747" y_p5="0" />
+			<connection dest="" dest_pin="IR_rear_center_shortrange" reldiff="0" shape_type="4" source="AADC_Calibration_Filter_Extended9" source_pin="output_value" x_p2="2393" x_p3="2393" x_p4="2393" x_p5="2393" y_p2="0" y_p3="669" y_p4="669" y_p5="0" />
+			<connection dest="" dest_pin="IR_front_right_shortrange" reldiff="0" shape_type="4" source="AADC_Calibration_Filter_Extended8" source_pin="output_value" x_p2="2389" x_p3="2389" x_p4="2389" x_p5="2389" y_p2="0" y_p3="591" y_p4="591" y_p5="0" />
+			<connection dest="" dest_pin="IR_front_right_longrange" reldiff="0" shape_type="4" source="AADC_Calibration_Filter_Extended7" source_pin="output_value" x_p2="2385" x_p3="2385" x_p4="2385" x_p5="2385" y_p2="0" y_p3="513" y_p4="513" y_p5="0" />
+			<connection dest="" dest_pin="IR_front_left_shortrange" reldiff="0" shape_type="4" source="AADC_Calibration_Filter_Extended6" source_pin="output_value" x_p2="2381" x_p3="2381" x_p4="2381" x_p5="2381" y_p2="0" y_p3="435" y_p4="435" y_p5="0" />
+			<connection dest="" dest_pin="IR_front_left_longrange" reldiff="0" shape_type="4" source="AADC_Calibration_Filter_Extended5" source_pin="output_value" x_p2="2377" x_p3="2377" x_p4="2377" x_p5="2377" y_p2="0" y_p3="357" y_p4="357" y_p5="0" />
+			<connection dest="" dest_pin="IR_front_center_shortrange" reldiff="0" shape_type="4" source="AADC_Calibration_Filter_Extended4" source_pin="output_value" x_p2="2373" x_p3="2373" x_p4="2373" x_p5="2373" y_p2="0" y_p3="279" y_p4="279" y_p5="0" />
+			<connection dest="" dest_pin="IR_front_center_longrange" reldiff="0" shape_type="4" source="AADC_Calibration_Filter_Extended3" source_pin="output_value" x_p2="2369" x_p3="2369" x_p4="2369" x_p5="2369" y_p2="0" y_p3="201" y_p4="201" y_p5="0" />
+			<connection dest="AADC_Calibration_Filter_Extended11" dest_pin="input_value" reldiff="0" shape_type="3" source="AADC_Infrared_Signals" source_pin="voltage_rear_right_shortrange" x_p2="1939" x_p3="1939" x_p4="1939" x_p5="1939" y_p2="0" y_p3="1446" y_p4="1446" y_p5="0" />
+			<connection dest="AADC_Calibration_Filter_Extended10" dest_pin="input_value" reldiff="0" shape_type="3" source="AADC_Infrared_Signals" source_pin="voltage_rear_left_shortrange" x_p2="1935" x_p3="1935" x_p4="1935" x_p5="1935" y_p2="0" y_p3="1340" y_p4="1340" y_p5="0" />
+			<connection dest="AADC_Calibration_Filter_Extended9" dest_pin="input_value" reldiff="0" shape_type="3" source="AADC_Infrared_Signals" source_pin="voltage_rear_center_shortrange" x_p2="1931" x_p3="1931" x_p4="1931" x_p5="1931" y_p2="0" y_p3="1234" y_p4="1234" y_p5="0" />
+			<connection dest="AADC_Calibration_Filter_Extended8" dest_pin="input_value" reldiff="0" shape_type="3" source="AADC_Infrared_Signals" source_pin="voltage_front_right_shortrange" x_p2="1927" x_p3="1927" x_p4="1927" x_p5="1927" y_p2="0" y_p3="1128" y_p4="1128" y_p5="0" />
+			<connection dest="AADC_Calibration_Filter_Extended7" dest_pin="input_value" reldiff="0" shape_type="3" source="AADC_Infrared_Signals" source_pin="voltage_front_right_longrange" x_p2="1923" x_p3="1923" x_p4="1923" x_p5="1923" y_p2="0" y_p3="1022" y_p4="1022" y_p5="0" />
+			<connection dest="AADC_Calibration_Filter_Extended6" dest_pin="input_value" reldiff="0" shape_type="3" source="AADC_Infrared_Signals" source_pin="voltage_front_left_shortrange" x_p2="1919" x_p3="1919" x_p4="1919" x_p5="1919" y_p2="0" y_p3="916" y_p4="916" y_p5="0" />
+			<connection dest="AADC_Calibration_Filter_Extended5" dest_pin="input_value" reldiff="0" shape_type="3" source="AADC_Infrared_Signals" source_pin="voltage_front_left_longrange" x_p2="1915" x_p3="1915" x_p4="1915" x_p5="1915" y_p2="0" y_p3="810" y_p4="810" y_p5="0" />
+			<connection dest="AADC_Calibration_Filter_Extended4" dest_pin="input_value" reldiff="0" shape_type="3" source="AADC_Infrared_Signals" source_pin="voltage_front_center_shortrange" x_p2="1911" x_p3="1911" x_p4="1911" x_p5="1911" y_p2="0" y_p3="704" y_p4="704" y_p5="0" />
+			<connection dest="AADC_Calibration_Filter_Extended3" dest_pin="input_value" reldiff="0" shape_type="3" source="AADC_Infrared_Signals" source_pin="voltage_front_center_longrange" x_p2="1907" x_p3="1907" x_p4="1907" x_p5="1907" y_p2="0" y_p3="598" y_p4="598" y_p5="0" />
+			<connection dest="" dest_pin="US_range_rear_right" reldiff="0" shape_type="3" source="AADC_Ultrasonic_Signals" source_pin="range_rear_right" x_p2="1916" x_p3="1916" x_p4="1916" x_p5="1916" y_p2="0" y_p3="491" y_p4="491" y_p5="0" />
+			<connection dest="" dest_pin="US_range_rear_left" reldiff="0" shape_type="3" source="AADC_Ultrasonic_Signals" source_pin="range_rear_left" x_p2="1912" x_p3="1912" x_p4="1912" x_p5="1912" y_p2="0" y_p3="413" y_p4="413" y_p5="0" />
+			<connection dest="" dest_pin="US_range_front_right" reldiff="0" shape_type="3" source="AADC_Ultrasonic_Signals" source_pin="range_front_right" x_p2="1908" x_p3="1908" x_p4="1908" x_p5="1908" y_p2="0" y_p3="335" y_p4="335" y_p5="0" />
+			<connection dest="" dest_pin="US_range_front_left" reldiff="0" shape_type="3" source="AADC_Ultrasonic_Signals" source_pin="range_front_left" x_p2="1904" x_p3="1904" x_p4="1904" x_p5="1904" y_p2="0" y_p3="257" y_p4="257" y_p5="0" />
+			<connection dest="AADC_Arduino_Actuator" dest_pin="reverseLightsEnabled" reldiff="0" shape_type="4" source="" source_pin="reverseLightsEnabled" x_p2="558" x_p3="558" x_p4="558" x_p5="558" y_p2="0" y_p3="218" y_p4="218" y_p5="0" />
+			<connection dest="AADC_Arduino_Actuator" dest_pin="brakeLightEnabled" reldiff="0" shape_type="4" source="" source_pin="brakeLightEnabled" x_p2="554" x_p3="554" x_p4="554" x_p5="554" y_p2="0" y_p3="194" y_p4="194" y_p5="0" />
+			<connection dest="AADC_Arduino_Actuator" dest_pin="turnSignalRightEnabled" reldiff="0" shape_type="4" source="" source_pin="turnSignalRightEnabled" x_p2="553" x_p3="553" x_p4="553" x_p5="553" y_p2="0" y_p3="170" y_p4="170" y_p5="0" />
+			<connection dest="AADC_Arduino_Actuator" dest_pin="turnSignalLeftEnabled" reldiff="0" shape_type="4" source="" source_pin="turnSignalLeftEnabled" x_p2="564" x_p3="564" x_p4="564" x_p5="564" y_p2="0" y_p3="146" y_p4="146" y_p5="0" />
+			<connection dest="AADC_Arduino_Actuator" dest_pin="headLightEnabled" reldiff="0" shape_type="4" source="" source_pin="headLightEnabled" x_p2="560" x_p3="560" x_p4="560" x_p5="560" y_p2="0" y_p3="122" y_p4="122" y_p5="0" />
+			<connection dest="AADC_Arduino_Actuator" dest_pin="accelerate" reldiff="0" shape_type="4" source="AADC_Calibration_Filter_Extended" source_pin="output_value" x_p2="556" x_p3="556" x_p4="556" x_p5="556" y_p2="0" y_p3="74" y_p4="74" y_p5="0" />
+			<connection dest="AADC_Arduino_Actuator" dest_pin="steerAngle" reldiff="0" shape_type="3" source="AADC_Calibration_Filter_Extended2" source_pin="output_value" x_p2="552" x_p3="552" x_p4="552" x_p5="552" y_p2="0" y_p3="98" y_p4="98" y_p5="0" />
+			<connection dest="AADC_Calibration_Filter_Extended2" dest_pin="input_value" reldiff="0" shape_type="3" source="" source_pin="steerAngle" x_p2="175" x_p3="175" x_p4="175" x_p5="175" y_p2="0" y_p3="74" y_p4="74" y_p5="0" />
+			<connection dest="AADC_Calibration_Filter_Extended" dest_pin="input_value" reldiff="0" shape_type="3" source="" source_pin="accelerate" x_p2="174" x_p3="174" x_p4="174" x_p5="174" y_p2="0" y_p3="180" y_p4="180" y_p5="0" />
+			<connection dest="AADC_Arduino_Sensors" dest_pin="ArduinoCOM_input" reldiff="0" shape_type="3" source="AADC_Arduino_Communication" source_pin="COM_output" x_p2="1211" x_p3="1211" x_p4="1211" x_p5="1211" y_p2="0" y_p3="74" y_p4="74" y_p5="0" />
+			<connection dest="AADC_Arduino_Communication" dest_pin="COM_input" reldiff="0" shape_type="3" source="AADC_Arduino_Actuator" source_pin="ArduinoCOM_output" x_p2="964" x_p3="964" x_p4="964" x_p5="964" y_p2="0" y_p3="74" y_p4="74" y_p5="0" />
+		</configuration>
+		<configuration horizontal_scrollbar_value="22" name="Jury_Config" show="true" tab_pos="3" vertical_scrollbar_value="118" zoomfactor="1,000000">
+			<component height="46" name="Emergency_Stop_Loopback" width="183" x="32" y="32" />
+			<component height="46" name="Jury_Struct_Loopback" width="148" x="32" y="142" />
+			<component height="46" name="Watchdog_Loop_out" width="138" x="201" y="252" />
+			<component height="46" name="Watchdog_Loop_in" width="129" x="32" y="252" />
+			<component height="46" name="Jury_Struct" width="84" x="419" y="362" />
+			<component height="46" name="Emergency_Stop" width="119" x="419" y="440" />
+			<component height="46" name="Driver_Struct" width="96" x="32" y="362" />
+			<component height="98" name="AADC_Jury_Module" width="203" x="168" y="362">
+				<input_pin name="Driver_Struct" />
+				<output_pin name="Jury_Struct" />
+				<output_pin name="Emergency_Stop" />
+			</component>
+			<connection dest="" dest_pin="Watchdog_Loop_out" reldiff="0" shape_type="3" source="" source_pin="Watchdog_Loop_in" x_p2="163" x_p3="163" x_p4="163" x_p5="163" y_p2="0" y_p3="265" y_p4="265" y_p5="0" />
+			<connection dest="" dest_pin="Jury_Struct" reldiff="0" shape_type="4" source="AADC_Jury_Module" source_pin="Jury_Struct" x_p2="387" x_p3="387" x_p4="387" x_p5="387" y_p2="0" y_p3="375" y_p4="375" y_p5="0" />
+			<connection dest="AADC_Jury_Module" dest_pin="Driver_Struct" reldiff="0" shape_type="3" source="" source_pin="Driver_Struct" x_p2="131" x_p3="131" x_p4="131" x_p5="131" y_p2="0" y_p3="404" y_p4="404" y_p5="0" />
+			<connection dest="" dest_pin="Emergency_Stop" reldiff="0" shape_type="3" source="AADC_Jury_Module" source_pin="Emergency_Stop" x_p2="387" x_p3="387" x_p4="451" x_p5="451" y_p2="0" y_p3="453" y_p4="453" y_p5="0" />
+		</configuration>
+	</ce_layouts>
+</adtf:configuration>

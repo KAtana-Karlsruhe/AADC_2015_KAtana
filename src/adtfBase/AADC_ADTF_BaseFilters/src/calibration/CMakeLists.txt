@@ -1,0 +1,2 @@
+add_subdirectory(AADC_SignalCalibration)
+add_subdirectory(AADC_SignalCalibrationExt)

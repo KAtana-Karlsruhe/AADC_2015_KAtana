@@ -1,0 +1,4 @@
+add_subdirectory(AADC_ArduinoMux)
+add_subdirectory(AADC_ArduinoCommunication)
+add_subdirectory(AADC_ArduinoDemux)
+add_subdirectory(AADC_All_Sensors)

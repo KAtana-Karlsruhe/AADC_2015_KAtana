@@ -1,0 +1,5 @@
+<adtf:export xmlns:adtf="adtf">
+	<layout name="MissionControlTest">
+		<filter Docked="false" Floating="false" Fullscreen="false" Height="621" Maximized="false" Minimized="false" PosX="0" PosY="0" TopOfMain="false" Visible="true" Width="321" name="AADC_Jury_Module" />
+	</layout>
+</adtf:export>

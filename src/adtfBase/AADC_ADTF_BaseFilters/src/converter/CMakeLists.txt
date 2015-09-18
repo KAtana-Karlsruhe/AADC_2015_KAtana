@@ -1,0 +1,2 @@
+add_subdirectory(AADC_AttitudeConverter)
+add_subdirectory(AADC_WheelRpmConverter)

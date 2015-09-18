@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<!-- KATANA Patch description file
+     patch: ein Patch (Punkt (0,0) liegt unten am Beginn des Mittelstreifens)
+	corner Punkte: Eckpunkte des Patches (genutzt um Überlappung zu prüfen)
+	diversion: Ein Abzweig (Kurven und Geraden-Patches haben nur einen Abzweig, Kreuzungen 3)
+	    endpose: Ende des Mittelstreifens am Ende dieser Verzweigung
+     		strip: ein möglicher Fahrweg auf einem Patch in Richtung des Abzweigs (diversion) (id=0 ist der default strip, Rechtsverkehr)
+     	            point: ein Punkt des Fahrwegpolygons (richtige Reihenfolge einhalten!)
+
+Diversions bei Junction: 0=left, 1=straight, 2=right
+-->
+<patch description="straight" id="0">
+	<corner id="down-right" xvalue="0" yvalue="-0.48"/>
+	<corner id="down-left" xvalue="0" yvalue="0.48"/>
+	<corner id="up-right" xvalue="0.5" yvalue="-0.48"/>
+	<corner id="up-left" xvalue="0.5" yvalue="0.48"/>
+
+	<diversion id="0">
+		<endpose xvalue="0.5" yvalue="0" theta="0"/>
+		<strip id="0">
+			<point xvalue="0.25" yvalue="-0.23" yaw="0.0"/>
+		</strip>
+		<strip id="1">
+			<point xvalue="0.25" yvalue="0.23" yaw="0.0"/>
+		</strip>
+	</diversion>
+</patch>
+<patch description="SMALL_L_CURVE" id="1">
+	<corner id="down-right" xvalue="0" yvalue="-0.48"/>
+	<corner id="down-left" xvalue="0" yvalue="0.48"/>
+	<corner id="up-right" xvalue="0.6097677842" yvalue="-0.3834222708"/>
+	<corner id="up-left" xvalue="0.3131114696" yvalue="0.5295919849"/>
+
+	<diversion id="0">
+		<endpose xvalue="0.4614396269" yvalue="0.07308485704" theta="0.3141592654"/>
+		<strip id="0">
+			<point xvalue="0.2706316245" yvalue="-0.2087008292" yaw="0.1570796327"/>
+		</strip>
+		<strip id="1">
+			<point xvalue="0.1986717706" yvalue="0.2456358074" yaw="0.1570796327"/>
+		</strip>
+	</diversion>
+</patch>
+<patch description="SMALL_R_CURVE" id="2">
+	<corner id="down-right" xvalue="0" yvalue="-0.48"/>
+	<corner id="down-left" xvalue="0" yvalue="0.48"/>
+	<corner id="up-right" xvalue="0.3131114696" yvalue="-0.5295919849"/>
+	<corner id="up-left" xvalue="0.6097677842" yvalue="0.3834222708"/>
+
+	<diversion id="0">
+		<endpose xvalue="0.4614396269" yvalue="-0.07308485704" theta="-0.3141592654"/>
+		<strip id="0">
+			<point xvalue="0.1986717706" yvalue="-0.2456358074" yaw="-0.1570796327"/>
+		</strip>
+		<strip id="1">
+			<point xvalue="0.2706316245" yvalue="0.2087008292" yaw="-0.1570796327"/>
+		</strip>
+	</diversion>
+</patch>
+
+<patch description="JUNCTION" id="3">
+	<corner id="down-right" xvalue="0" yvalue="-0.5"/>
+	<corner id="down-left" xvalue="0" yvalue="0.5"/>
+	<corner id="up-right" xvalue="1" yvalue="-0.5"/>
+	<corner id="up-left" xvalue="1" yvalue="0.5"/>
+	<!-- LEFT TURN-->
+	<diversion id="0">
+		<endpose xvalue="0.5" yvalue="0.5" theta="1.570796327"/>
+		<!-- RIGHT -->
+		<strip id="0">
+			<point xvalue="-0.4" yvalue="-0.23" yaw="0.0"/>
+			<point xvalue="0.02095" yvalue="-0.14627" yaw="0.392699"/>
+			<point xvalue="0.37782" yvalue="0.092183" yaw="0.785398"/>
+			<!--<point xvalue="0.61627" yvalue="0.44905" yaw="1.178097"/> -->
+			<!--<point xvalue="0.7" yvalue="0.87" yaw="1.570796327"/> -->
+		</strip>
+		<!-- LEFT -->
+		<strip id="1">
+			<point xvalue="-0.57" yvalue="0.23" yaw="0.0"/>
+			<point xvalue="-0.22385" yvalue="0.29090" yaw="0.39270"/>
+			<point xvalue="-0.01569" yvalue="0.46431" yaw="0.7853981634"/>
+			<point xvalue="0.16910" yvalue="0.72385" yaw="1.178097"/>
+			<point xvalue="0.23" yvalue="1.03" yaw="1.570796"/>
+		</strip>
+	</diversion>
+	<!-- STRAIGHT -->
+	<diversion id="1">
+		<endpose xvalue="1" yvalue="0" theta="0.0"/>
+		<!-- RIGHT -->
+		<strip id="0">
+			<point xvalue="0.2" yvalue="-0.23" yaw="0.0"/>
+			<point xvalue="0.4" yvalue="-0.23" yaw="0.0"/>
+		</strip>
+		<!-- LEFT -->
+		<strip id="1">
+			<point xvalue="0.2" yvalue="0.23" yaw="0.0"/>
+			<point xvalue="0.4" yvalue="0.23" yaw="0.0"/>
+		</strip>
+	</diversion>
+	<!-- RIGHT TURN-->
+	<diversion id="2">
+		<endpose xvalue="0.5" yvalue="-0.5" theta="-1.570796327"/>
+		<!-- RIGHT -->
+		<strip id="0">
+                        <point xvalue="-0.57" yvalue="-0.23" yaw="0.0"/>
+			<point xvalue="-0.22385" yvalue="-0.29090" yaw="-0.39270"/>
+			<point xvalue="-0.01569" yvalue="-0.46431" yaw="-0.7853981634"/>
+			<point xvalue="0.16910" yvalue="-0.72385" yaw="-1.178097"/>
+			<point xvalue="0.23" yvalue="-1.03" yaw="-1.570796"/>
+		</strip>
+		<!-- LEFT -->
+		<strip id="1">
+			<point xvalue="-0.4" yvalue="0.23" yaw="0.0"/>
+			<point xvalue="0.02095" yvalue="0.14627" yaw="-0.392699"/>
+			<point xvalue="0.37782" yvalue="-0.092183" yaw="-0.785398"/>
+			<!--<point xvalue="0.61627" yvalue="0.44905" yaw="1.178097"/> -->
+			<!--<point xvalue="0.7" yvalue="0.87" yaw="1.570796327"/> -->
+		</strip>
+	</diversion>
+</patch>
+
+<patch description="CROSS_PARKING_REVERSE" id="4">
+	<!-- TODO: ADAPT CORNERS! -->
+	<corner id="down-right" xvalue="0" yvalue="1"/>
+	<corner id="down-left" xvalue="0" yvalue="1"/>
+	<corner id="up-right" xvalue="0.3131114696" yvalue="-0.5295919849"/>
+	<corner id="up-left" xvalue="0.6097677842" yvalue="0.3834222708"/>
+
+	<diversion id="0" reverse="1">
+		<endpose xvalue="0.4614396269" yvalue="-0.07308485704" theta="-0.3141592654"/>
+		<strip id="0">
+			<point xvalue="0.815735" yvalue="-0.00779" yaw="0.98175"/>
+			<point xvalue="0.53" yvalue="-0.5" yaw="1.28"/>
+			<point xvalue="0.49" yvalue="-0.80" yaw="1.55"/>
+			<point xvalue="0.49" yvalue="-1.05" yaw="1.570796327"/>
+<!--
+			<point xvalue="0.87" yvalue="-0.11" yaw="0.7853981634"/>
+			<point xvalue="0.6" yvalue="-0.5" yaw="1.2"/>
+			<point xvalue="0.4" yvalue="-0.80" yaw="1.4"/>
+			<point xvalue="0.4" yvalue="-1.05" yaw="1.570796327"/>-->
+		</strip>
+		<strip id="1">
+			<!-- TODO: LEFT PARKING MODE -->
+			<point xvalue="0.2706316245" yvalue="0.2087008292" yaw="-0.1570796327"/>
+		</strip>
+	</diversion>
+</patch>
+<patch description="CROSS_PARKING_FORWARD" id="5">
+	<!-- TODO: ADAPT CORNERS! -->
+	<corner id="down-right" xvalue="0" yvalue="1"/>
+	<corner id="down-left" xvalue="0" yvalue="1"/>
+	<corner id="up-right" xvalue="0.3131114696" yvalue="-0.5295919849"/>
+	<corner id="up-left" xvalue="0.6097677842" yvalue="0.3834222708"/>
+
+	<diversion id="0">
+		<endpose xvalue="0.4614396269" yvalue="-0.07308485704" theta="-0.3141592654"/>
+		<strip id="0">
+			<point xvalue="0.2" yvalue="-0.23" yaw="0.0"/>
+			<point xvalue="0.4" yvalue="-0.23" yaw="0.0"/>
+			<point xvalue="0.5913" yvalue="-0.191949" yaw="0.392699"/>
+			<point xvalue="0.75355" yvalue="-0.083553" yaw="0.785398"/>
+			<point xvalue="0.815735" yvalue="-0.00779" yaw="0.98175"/>
+<!--
+<point xvalue="0.2" yvalue="-0.23" yaw="0.0"/>
+			<point xvalue="0.45" yvalue="-0.20" yaw="0.2"/>
+			<point xvalue="0.7" yvalue="-0.17" yaw="0.5"/>
+			<point xvalue="0.87" yvalue="-0.11" yaw="0.7853981634"/>-->
+		</strip>
+		<strip id="1">
+			<!-- TODO: LEFT PARKING MODE -->
+			<point xvalue="0.2706316245" yvalue="0.2087008292" yaw="-0.1570796327"/>
+		</strip>
+	</diversion>
+</patch>
+
+<patch description="PARALLEL_PARKING_REVERSE" id="6">
+	<!-- TODO: ADAPT CORNERS! -->
+	<corner id="down-right" xvalue="0" yvalue="1"/>
+	<corner id="down-left" xvalue="0" yvalue="1"/>
+	<corner id="up-right" xvalue="0.3131114696" yvalue="-0.5295919849"/>
+	<corner id="up-left" xvalue="0.6097677842" yvalue="0.3834222708"/>
+
+	<diversion id="0" reverse="1">
+		<!-- ENDPOSE NOT DEFINED -->
+		<endpose xvalue="0.4614396269" yvalue="-0.07308485704" theta="0.0"/>
+		<strip id="0">
+			<point xvalue="1.4" yvalue="-0.33" yaw="0.0"/>
+			<point xvalue="1.15" yvalue="-0.33" yaw="0.0"/>
+			<point xvalue="0.90" yvalue="-0.485" yaw="0.7"/>
+			<point xvalue="0.65" yvalue="-0.60" yaw="0.0"/>
+			<point xvalue="0.35" yvalue="-0.60" yaw="0.0"/>
+			<point xvalue="0.23" yvalue="-0.60" yaw="0.0"/>
+		</strip>
+		<strip id="1">
+			<!-- TODO: LEFT PARKING MODE -->
+			<point xvalue="0.2706316245" yvalue="0.2087008292" yaw="-0.1570796327"/>
+		</strip>
+	</diversion>
+</patch>
+<patch description="PARALLEL_PARKING_FORWARD" id="7">
+	<!-- TODO: ADAPT CORNERS! -->
+	<corner id="down-right" xvalue="0" yvalue="1"/>
+	<corner id="down-left" xvalue="0" yvalue="1"/>
+	<corner id="up-right" xvalue="0.3131114696" yvalue="-0.5295919849"/>
+	<corner id="up-left" xvalue="0.6097677842" yvalue="0.3834222708"/>
+
+	<diversion id="0">
+		<endpose xvalue="0.4614396269" yvalue="-0.07308485704" theta="-0.3141592654"/>
+		<strip id="0">
+			<point xvalue="0.5" yvalue="-0.23" yaw="-0.2"/>
+			<point xvalue="0.8" yvalue="-0.26" yaw="-0.3"/>
+			<point xvalue="1.00" yvalue="-0.34" yaw="0.0"/>
+			<point xvalue="1.25" yvalue="-0.31" yaw="0.1"/>
+		</strip>
+		<strip id="1">
+			<!-- TODO: LEFT PARKING MODE -->
+			<point xvalue="0.2706316245" yvalue="0.2087008292" yaw="-0.1570796327"/>
+		</strip>
+	</diversion>
+</patch>
+<patch description="PARALLEL_PARKING_FORWARD_2" id="8">
+	<!-- TODO: ADAPT CORNERS! -->
+	<corner id="down-right" xvalue="0" yvalue="1"/>
+	<corner id="down-left" xvalue="0" yvalue="1"/>
+	<corner id="up-right" xvalue="0.3131114696" yvalue="-0.5295919849"/>
+	<corner id="up-left" xvalue="0.6097677842" yvalue="0.3834222708"/>
+
+	<diversion id="0">
+		<endpose xvalue="0.4614396269" yvalue="-0.07308485704" theta="-0.3141592654"/>
+		<strip id="0">
+			<point xvalue="0.0" yvalue="-0.60" yaw="0.0"/>
+			<point xvalue="0.15" yvalue="-0.60" yaw="0.0"/>
+			<point xvalue="0.4" yvalue="-0.60" yaw="0.0"/>
+		</strip>
+		<strip id="1">
+			<!-- TODO: LEFT PARKING MODE -->
+			<point xvalue="0.2706316245" yvalue="0.2087008292" yaw="-0.1570796327"/>
+		</strip>
+	</diversion>
+</patch>
+<!--
+<patch description="PARALLEL_PARKING_REVERSE" id="6">
+	<corner id="down-right" xvalue="0" yvalue="1"/>
+	<corner id="down-left" xvalue="0" yvalue="1"/>
+	<corner id="up-right" xvalue="0.3131114696" yvalue="-0.5295919849"/>
+	<corner id="up-left" xvalue="0.6097677842" yvalue="0.3834222708"/>
+
+	<diversion id="0" reverse="1">
+		
+		<endpose xvalue="0.4614396269" yvalue="-0.07308485704" theta="0.0"/>
+		<strip id="0">
+			<point xvalue="1.4" yvalue="-0.33" yaw="0.0"/>
+			<point xvalue="1.15" yvalue="-0.33" yaw="0.0"/>
+			<point xvalue="0.2" yvalue="-0.74" yaw="0.0"/>
+			<point xvalue="0.0" yvalue="-0.74" yaw="0.0"/>
+		</strip>
+		<strip id="1">
+			
+			<point xvalue="0.2706316245" yvalue="0.2087008292" yaw="-0.1570796327"/>
+		</strip>
+	</diversion>
+</patch>
+<patch description="PARALLEL_PARKING_FORWARD" id="7">
+
+	<corner id="down-right" xvalue="0" yvalue="1"/>
+	<corner id="down-left" xvalue="0" yvalue="1"/>
+	<corner id="up-right" xvalue="0.3131114696" yvalue="-0.5295919849"/>
+	<corner id="up-left" xvalue="0.6097677842" yvalue="0.3834222708"/>
+
+	<diversion id="0">
+		<endpose xvalue="0.4614396269" yvalue="-0.07308485704" theta="-0.3141592654"/>
+		<strip id="0">
+			<point xvalue="0.5" yvalue="-0.23" yaw="-0.3"/>
+			<point xvalue="0.8" yvalue="-0.27" yaw="-0.3"/>
+			<point xvalue="1.00" yvalue="-0.36" yaw="0.0"/>
+			<point xvalue="1.20" yvalue="-0.33" yaw="0.2"/>
+		</strip>
+		<strip id="1">
+
+			<point xvalue="0.2706316245" yvalue="0.2087008292" yaw="-0.1570796327"/>
+		</strip>
+	</diversion>
+</patch>
+<patch description="PARALLEL_PARKING_FORWARD_2" id="8">
+
+	<corner id="down-right" xvalue="0" yvalue="1"/>
+	<corner id="down-left" xvalue="0" yvalue="1"/>
+	<corner id="up-right" xvalue="0.3131114696" yvalue="-0.5295919849"/>
+	<corner id="up-left" xvalue="0.6097677842" yvalue="0.3834222708"/>
+
+	<diversion id="0">
+		<endpose xvalue="0.4614396269" yvalue="-0.07308485704" theta="-0.3141592654"/>
+		<strip id="0">
+			<point xvalue="0.0" yvalue="-0.74" yaw="0.0"/>
+			<point xvalue="0.1" yvalue="-0.74" yaw="0.0"/>
+			<point xvalue="0.3" yvalue="-0.74" yaw="0.0"/>
+		</strip>
+		<strip id="1">
+
+			<point xvalue="0.2706316245" yvalue="0.2087008292" yaw="-0.1570796327"/>
+		</strip>
+	</diversion>
+</patch>
+-->
+<patch description="PARALLEL_PARKING_PULL_OUT_REVERSE" id="9">
+	<!-- TODO: ADAPT CORNERS! -->
+	<corner id="down-right" xvalue="0" yvalue="1"/>
+	<corner id="down-left" xvalue="0" yvalue="1"/>
+	<corner id="up-right" xvalue="0.3131114696" yvalue="-0.5295919849"/>
+	<corner id="up-left" xvalue="0.6097677842" yvalue="0.3834222708"/>
+
+	<diversion id="0" reverse="1">
+		<endpose xvalue="0.4614396269" yvalue="-0.07308485704" theta="-0.3141592654"/>
+		<strip id="0">
+			<point xvalue="0.2" yvalue="-0.50" yaw="0.2"/>
+			<point xvalue="-0.05" yvalue="-0.55" yaw="0.2"/>
+			<point xvalue="-0.25" yvalue="-0.60" yaw="0.2"/>
+		</strip>
+		<strip id="1">
+			<!-- TODO: LEFT PARKING MODE -->
+			<point xvalue="0.2706316245" yvalue="0.2087008292" yaw="-0.1570796327"/>
+		</strip>
+	</diversion>
+</patch>
+<patch description="PARALLEL_PARKING_PULL_OUT_FORWARD" id="10">
+	<!-- TODO: ADAPT CORNERS! -->
+	<corner id="down-right" xvalue="0" yvalue="1"/>
+	<corner id="down-left" xvalue="0" yvalue="1"/>
+	<corner id="up-right" xvalue="0.3131114696" yvalue="-0.5295919849"/>
+	<corner id="up-left" xvalue="0.6097677842" yvalue="0.3834222708"/>
+
+	<diversion id="0">
+		<endpose xvalue="0.6" yvalue="0.0" theta="0.0"/>
+		<strip id="0">
+			<point xvalue="0.0" yvalue="-0.60" yaw="0.0"/>
+			<point xvalue="0.1" yvalue="-0.60" yaw="0.0"/>
+			<point xvalue="0.8" yvalue="-0.05" yaw="0.0"/>
+			<point xvalue="0.9" yvalue="-0.05" yaw="0.0"/>
+
+<!--
+			<point xvalue="0.0" yvalue="-0.64" yaw="0.78"/>
+			<point xvalue="0.15" yvalue="-0.59" yaw="0.78"/>
+			<point xvalue="0.4" yvalue="-0.54" yaw="0.78"/>
+-->
+		</strip>
+		<strip id="1">
+			<!-- TODO: LEFT PARKING MODE -->
+			<point xvalue="0.2706316245" yvalue="0.2087008292" yaw="-0.1570796327"/>
+		</strip>
+	</diversion>
+</patch>
+

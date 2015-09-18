@@ -1,0 +1,2 @@
+add_subdirectory(obstacle_ir_us)
+add_subdirectory(xtion_obstacle)
